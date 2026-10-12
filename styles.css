@@ -23,6 +23,7 @@
   --link-hover: #000000;
   --link-underline-subtle: rgba(0, 0, 0, 0.22); /* Persistent ghost underline */
   --link-underline-hover: #000000;              /* Crisp active underline */
+  --link-underline-offset: 0.4em;
 
   /* Borders & Dividers */
   --border-subtle: rgba(0, 0, 0, 0.06);   /* Ultra-light dividers */
