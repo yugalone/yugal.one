@@ -24,6 +24,7 @@
   --link-underline-subtle: rgba(0, 0, 0, 0.22); /* Persistent ghost underline */
   --link-underline-hover: #000000;              /* Crisp active underline */
   --link-underline-offset: 0.4em;
+  --link-underline-thickness: 1px;
 
   /* Borders & Dividers */
   --border-subtle: rgba(0, 0, 0, 0.06);   /* Ultra-light dividers */
@@ -31,6 +32,9 @@
 
   /* Shadows */
   --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+  /* Layout & Dimensions */
+  --content-max-width: 680px;
 
   /* Transitions & Interactive Feel */
   --hover-opacity: 0.6;
@@ -64,7 +68,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 120px 24px 120px;
-  max-width: 680px;
+  max-width: var(--content-max-width);
   margin: 0 auto;
 }
 
@@ -77,7 +81,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 680px;
+  max-width: var(--content-max-width);
   font-size: 14px;
   z-index: 1000;
   background: var(--bg-glass);
@@ -105,8 +109,8 @@ body {
   font-weight: 400;
   text-decoration: underline;
   text-decoration-color: var(--link-underline-subtle);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.4em;
+  text-decoration-thickness: var(--link-underline-thickness);
+  text-underline-offset: var(--link-underline-offset);
   transition: color var(--transition-fast), text-decoration-color var(--transition-fast), opacity var(--transition-fast);
 }
 
@@ -229,8 +233,8 @@ a {
   font-weight: 400;
   text-decoration: underline;
   text-decoration-color: var(--link-underline-subtle);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.4em;
+  text-decoration-thickness: var(--link-underline-thickness);
+  text-underline-offset: var(--link-underline-offset);
   transition: color var(--transition-fast), text-decoration-color var(--transition-fast), opacity var(--transition-fast);
 }
 
@@ -444,7 +448,7 @@ footer {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 680px;
+  max-width: var(--content-max-width);
   font-size: 14px;
   background: var(--bg-glass);
   backdrop-filter: blur(12px);
@@ -532,8 +536,8 @@ footer {
   body {
     padding: 0;
     max-width: 100%;
-    color: #000000;
-    background: #FFFFFF;
+    color: var(--text-primary);
+    background: var(--bg-primary);
   }
 
   /* Unpin navigation and footer so they flow naturally without overlapping content */
@@ -578,7 +582,7 @@ footer {
   h1, h2 {
     break-after: avoid;
     page-break-after: avoid;
-    color: #000000;
+    color: var(--text-primary);
   }
 
   p, ul, li, section, .header-branding, .podcast-section, .video-placeholder {
@@ -592,8 +596,10 @@ footer {
   }
 
   a {
-    color: #000000;
+    color: var(--link-hover);
     text-decoration: underline;
-    text-underline-offset: 0.4em;
+    text-decoration-color: var(--border-muted);
+    text-decoration-thickness: var(--link-underline-thickness);
+    text-underline-offset: var(--link-underline-offset);
   }
 }
