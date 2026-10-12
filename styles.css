@@ -63,7 +63,7 @@ body {
 }
 
 .nav-tab {
-  color: #0066cc;
+  color: #4285f4;
   font-weight: 400;
   text-decoration: none;
 }
@@ -163,7 +163,7 @@ p {
 }
 
 a {
-  color: #0066cc;
+  color: #4285f4;
   font-weight: 400;
   text-decoration: none;
   transition: color 0.2s ease, text-decoration 0.2s ease;
@@ -171,7 +171,7 @@ a {
 
 a:hover {
   text-decoration: underline;
-  text-underline-offset: 0.25em;
+  text-underline-offset: 0.4em;
 }
 
 a:has(img) {
@@ -504,7 +504,7 @@ footer {
 
   /* Ensure link styling prints cleanly */
   a {
-    color: #0066cc;
+    color: #4285f4;
     text-decoration: none;
   }
 }
