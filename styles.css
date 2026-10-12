@@ -175,6 +175,8 @@ a {
   vertical-align: baseline;
   line-height: 1.4;
   transition: background-color 0.2s ease, opacity 0.2s ease;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
 a:hover {
