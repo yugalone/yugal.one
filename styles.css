@@ -59,21 +59,13 @@ body {
 
 .nav-links {
   display: flex;
-  gap: 20px;
+  gap: 12px;
 }
 
 .nav-tab {
   color: inherit;
   font-weight: 400;
-  text-decoration: underline;
-  text-decoration-color: rgba(0, 0, 0, 0.2);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.4em;
-  transition: text-decoration-color 0.2s ease, opacity 0.2s ease;
-}
-
-.nav-tab:hover {
-  opacity: 0.6;
+  text-decoration: none;
 }
 
 h1 {
@@ -129,6 +121,15 @@ p {
 .app-logo-link {
   display: inline-block;
   line-height: 0;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  text-decoration: none;
+}
+
+.app-logo-link:hover {
+  background-color: transparent;
+  opacity: 0.6;
 }
 
 .app-logo {
@@ -141,6 +142,15 @@ p {
   display: flex;
   align-items: center;
   gap: 8px;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  text-decoration: none;
+}
+
+.branding-wrapper:hover {
+  background-color: transparent;
+  opacity: 0.6;
 }
 
 .branding-text {
@@ -157,14 +167,29 @@ p {
 a {
   color: inherit;
   font-weight: 400;
-  text-decoration: underline;
-  text-decoration-color: rgba(0, 0, 0, 0.2);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.4em;
-  transition: text-decoration-color 0.2s ease, opacity 0.2s ease;
+  text-decoration: none;
+  background-color: #f0f0f0;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  display: inline-block;
+  vertical-align: baseline;
+  line-height: 1.4;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
 }
 
 a:hover {
+  background-color: #e4e4e4;
+  opacity: 0.85;
+}
+
+a:has(img) {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+a:has(img):hover {
+  background-color: transparent;
   opacity: 0.6;
 }
 
@@ -356,7 +381,7 @@ footer {
   padding: 20px 24px;
   display: flex;
   flex-wrap: wrap;
-  gap: 16px 24px;
+  gap: 10px 14px;
 }
 
 .footer-inner a {
