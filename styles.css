@@ -101,6 +101,7 @@ body {
 
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 20px;
 }
 
@@ -196,6 +197,13 @@ p {
 .app-logo {
   width: 100px;
   height: auto;
+  flex-shrink: 0;
+}
+
+.nav-logo {
+  width: 48px;
+  height: auto;
+  display: block;
   flex-shrink: 0;
 }
 
