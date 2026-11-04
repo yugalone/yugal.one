@@ -135,10 +135,11 @@
 }
 
 /* --------------------------------------------------------------------------
-   Design Tokens — Quiet, Monospaced & Warm
+   Design Tokens
    -------------------------------------------------------------------------- */
 :root {
   --bg: #ffffff;
+  --bg-subtle: #f9f9fb;
   --text-main: #111111;
   --text-body: #2e2e2e;
   --text-muted: #6e6e73;
@@ -189,7 +190,7 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   Understated Header & Navigation (Borderless, quiet)
+   Navigation
    -------------------------------------------------------------------------- */
 .site-header {
   width: 100%;
@@ -233,19 +234,19 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   Page Container & Layout
+   Page Container
    -------------------------------------------------------------------------- */
 .page-wrap {
   width: 100%;
   max-width: var(--content-w);
   margin: 0 auto;
-  padding: 64px 24px 96px;
+  padding: 64px 24px 80px;
   flex: 1;
 }
 
 /* Headings */
 .page-header {
-  margin-bottom: 36px;
+  margin-bottom: 32px;
 }
 
 .page-title {
@@ -310,12 +311,12 @@ a.inline-link:hover {
   text-decoration-color: var(--text-main);
 }
 
-/* Action Links (replacing heavy buttons) */
+/* Action Links */
 .action-links {
   display: flex;
   gap: 22px;
   flex-wrap: wrap;
-  margin: 28px 0 36px;
+  margin: 24px 0 32px;
   font-size: 13.5px;
 }
 
@@ -335,17 +336,19 @@ a.inline-link:hover {
   border-color: var(--text-main);
 }
 
-.action-link .arrow {
-  font-size: 12px;
+.arrow {
+  font-size: 11.5px;
   transition: transform 0.15s ease;
+  display: inline-block;
 }
 
-.action-link:hover .arrow {
+.action-link:hover .arrow,
+.footer-link:hover .arrow {
   transform: translate(2px, -2px);
 }
 
 /* --------------------------------------------------------------------------
-   Work / Project Entries (Editorial List — No bulky cards or box-shadows)
+   Work / Project Entries (Editorial List)
    -------------------------------------------------------------------------- */
 .work-list {
   display: flex;
@@ -395,7 +398,7 @@ a.inline-link:hover {
 }
 
 /* --------------------------------------------------------------------------
-   Product Spec / Capabilities List (Airy, clean 2-column or stacked)
+   Spec / Capabilities List
    -------------------------------------------------------------------------- */
 .spec-list {
   display: flex;
@@ -434,108 +437,194 @@ a.inline-link:hover {
 }
 
 /* --------------------------------------------------------------------------
-   Media Frame (Clean, borderless 16:9 video embed)
+   Showcase Image & Feature Gallery (Collab for AppSheet)
    -------------------------------------------------------------------------- */
-.video-frame {
-  position: relative;
+.showcase-banner {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  margin: 28px 0 36px;
   border-radius: 6px;
   overflow: hidden;
-  background: #f7f7f8;
-  border: 1px solid var(--line-faint);
-  margin: 28px 0;
+  border: 1px solid var(--line);
+  background: var(--bg-subtle);
 }
 
-.video-frame iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
+.showcase-banner img {
   width: 100%;
-  height: 100%;
-  border: none;
+  height: auto;
+  display: block;
+}
+
+.feature-media-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line-faint);
+}
+
+.feature-media-item:last-child {
+  border-bottom: none;
+}
+
+.feature-media-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.feature-media-name {
+  font-weight: 500;
+  color: var(--text-main);
+  font-size: 14px;
+}
+
+.feature-media-desc {
+  color: var(--text-muted);
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+
+.feature-screenshot {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+  display: block;
+  background: #ffffff;
 }
 
 /* --------------------------------------------------------------------------
-   Collab Sans Specimen & Tester Utilities
+   Minimalist Podcast Audio Player (Collab)
    -------------------------------------------------------------------------- */
-.specimen-header {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin: 24px 0 32px;
+.podcast-player {
+  background: #fafafc;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 20px 22px;
+  margin: 28px 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-.tester-area {
-  margin: 32px 0;
+.podcast-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.tester-input {
-  width: 100%;
-  min-height: 140px;
-  padding: 0;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--line);
-  font-family: var(--font-sans);
-  font-size: 24px;
-  line-height: 1.4;
+.podcast-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+}
+
+.podcast-title {
+  font-size: 15px;
+  font-weight: 500;
   color: var(--text-main);
-  resize: vertical;
-  outline: none;
-  transition: border-color 0.15s ease;
 }
 
-.tester-input:focus {
-  border-color: var(--text-main);
-}
-
-.tester-controls {
+.player-controls {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
   gap: 16px;
-  margin-top: 14px;
-  font-size: 12px;
-  color: var(--text-muted);
 }
 
-.weight-chips {
+.play-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--text-main);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
   display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.15s ease, opacity 0.15s ease;
 }
 
-.weight-chip {
-  padding: 4px 10px;
+.play-btn:hover {
+  opacity: 0.88;
+}
+
+.play-btn:active {
+  transform: scale(0.95);
+}
+
+.play-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.player-scrubber {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.seek-slider {
+  width: 100%;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #e4e4e7;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.seek-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--text-main);
+  cursor: pointer;
+}
+
+.seek-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--text-main);
+  border: none;
+  cursor: pointer;
+}
+
+.time-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.speed-btn {
+  background: none;
   border: 1px solid var(--line);
   border-radius: 4px;
-  background: transparent;
+  font-family: inherit;
   font-size: 11.5px;
   color: var(--text-muted);
+  padding: 4px 8px;
   cursor: pointer;
   transition: all 0.15s ease;
 }
 
-.weight-chip:hover,
-.weight-chip.active {
+.speed-btn:hover {
   color: var(--text-main);
   border-color: var(--text-main);
 }
 
-.alphabet-display {
-  font-size: 18px;
-  line-height: 1.5;
-  letter-spacing: 0.05em;
-  color: var(--text-body);
-  margin: 24px 0;
-  word-break: break-all;
-}
-
 /* --------------------------------------------------------------------------
-   Minimalist Footer (Quiet letter sign-off & links)
+   Universal Common Footer
    -------------------------------------------------------------------------- */
 .site-footer {
   width: 100%;
@@ -547,26 +636,92 @@ a.inline-link:hover {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 16px;
-  font-size: 12.5px;
-  color: var(--text-faint);
+  gap: 20px;
+  font-size: 13.5px;
 }
 
 .footer-links {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 22px;
   flex-wrap: wrap;
 }
 
 .footer-link {
-  color: var(--text-muted);
-  text-decoration: none;
-  transition: color 0.15s ease;
+  color: var(--text-main);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--line);
+  font-weight: 450;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: text-decoration-color 0.15s ease, color 0.15s ease;
 }
 
 .footer-link:hover {
+  text-decoration-color: var(--text-main);
+}
+
+.back-to-top {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+.back-to-top:hover {
   color: var(--text-main);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.back-to-top.active-feedback {
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--text-main);
+}
+
+/* Floating Back to Top Button */
+.floating-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--line);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 7px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 999;
+}
+
+.floating-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.floating-top:hover {
+  background: #ffffff;
+  border-color: var(--text-main);
 }
 
 /* --------------------------------------------------------------------------
@@ -577,8 +732,8 @@ a.inline-link:hover {
     padding-top: 36px;
   }
   .page-wrap {
-    padding-top: 40px;
-    padding-bottom: 64px;
+    padding-top: 36px;
+    padding-bottom: 56px;
   }
   .site-nav {
     flex-direction: column;
@@ -592,5 +747,11 @@ a.inline-link:hover {
   .work-row {
     flex-direction: column;
     gap: 2px;
+  }
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding-bottom: 48px;
   }
 }
