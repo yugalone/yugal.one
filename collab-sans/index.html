@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collab Sans — Rounded Neo-Grotesque Typeface Family | yugal.one</title>
+  <meta name="description" content="Collab Sans is a clean, warm neo-grotesque rounded typeface family derived from Inter across 18 styles. Built by Yugal with Antigravity under SIL OFL 1.1.">
+  <link rel="canonical" href="https://yugal.one/collab-sans">
+  <link rel="icon" type="image/svg+xml" href="/collab/Logo/Collab-500px-fit.svg">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Collab Sans — Inter's optical rigor, softened into warmth">
+  <meta property="og:description" content="18 styles: 9 weights (Thin to Black) with matching true italics. SIL Open Font License 1.1.">
+  <meta property="og:url" content="https://yugal.one/collab-sans">
+  <meta property="og:type" content="website">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZXEJWQXCP9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZXEJWQXCP9');
+  </script>
+
+  <style>
+    /* Specific Specimen Utilities */
+    .glyph-display {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 32px 0 40px;
+    }
+    .glyph-display-row {
+      line-height: 1.25;
+      word-break: break-all;
+    }
+    .glyph-display-row.caps {
+      font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+      font-weight: 500;
+      letter-spacing: 3px;
+    }
+    .glyph-display-row.lower {
+      font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #262626;
+    }
+    .glyph-display-row.nums {
+      font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+      font-weight: 400;
+      letter-spacing: 4px;
+      color: var(--text-muted);
+    }
+
+    .tester-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-light);
+      margin-bottom: 24px;
+    }
+
+    .weight-selector {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .w-btn {
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 500;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.15s ease;
+    }
+    .w-btn:hover {
+      color: var(--text-primary);
+    }
+    .w-btn.active {
+      color: var(--text-primary);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .tester-adjusters {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .slider-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .slider-wrap input[type="range"] {
+      width: 100px;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .italic-btn {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .italic-btn.active {
+      color: var(--text-primary);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .editable-canvas {
+      width: 100%;
+      min-height: 140px;
+      outline: none;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 400;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      padding: 24px 0;
+      word-break: break-word;
+      color: var(--text-primary);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .preset-links {
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding-top: 16px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .preset-btn {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: inherit;
+      color: var(--text-secondary);
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-color: var(--border-hover);
+    }
+    .preset-btn:hover {
+      color: var(--text-primary);
+      text-decoration-color: var(--text-primary);
+    }
+
+    .weight-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 28px 0;
+    }
+    .weight-row {
+      display: flex;
+      align-items: baseline;
+      gap: 36px;
+    }
+    .weight-num {
+      width: 48px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-muted);
+      font-feature-settings: "tnum" 1;
+    }
+    .weight-sample {
+      font-size: clamp(1.1rem, 2vw, 1.7rem);
+      letter-spacing: -0.2px;
+      line-height: 1.3;
+      color: var(--text-primary);
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      margin: 32px 0 48px;
+    }
+    .comparison-col-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .comparison-col-label.highlight {
+      color: var(--text-primary);
+    }
+    .comparison-glyphs {
+      font-size: clamp(4.5rem, 8vw, 7.5rem);
+      line-height: 1;
+      letter-spacing: 8px;
+      margin-bottom: 18px;
+    }
+    .comparison-desc {
+      font-size: 1.1rem;
+      line-height: 1.55;
+      color: var(--text-secondary);
+    }
+
+    .code-snippet {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #262626;
+      padding: 24px 0;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      overflow-x: auto;
+    }
+
+    @media (max-width: 720px) {
+      .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .weight-row {
+        gap: 18px;
+      }
+      .tester-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Unified Navigation -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="/" class="brand-link">
+        <span class="brand-icon" style="font-weight: 700; font-size: 17px;">
+          Aa
+        </span>
+        <span class="brand-title">yugal.one</span>
+      </a>
+
+      <nav class="site-nav">
+        <a href="/" class="nav-link">Yugal</a>
+        <a href="/collab" class="nav-link">Collab</a>
+        <a href="/collab-sans" class="nav-link active">Collab Sans</a>
+        <a href="/collab-for-appsheet" class="nav-link">Collab for AppSheet</a>
+        <a href="/flows" class="nav-link">Flows</a>
+        <a href="https://pages.razorpay.com/yugalone" target="_blank" rel="noopener" class="nav-cta">☕ Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Wrap -->
+  <main class="page-wrap">
+
+    <!-- 01 Overview -->
+    <section>
+      <div class="section-meta">Collab Sans  /  01 Overview</div>
+      <h1 class="page-title">Collab Sans</h1>
+      <p class="page-lead">Inter’s optical rigor, softened into warmth.</p>
+
+      <div class="glyph-display">
+        <div class="glyph-display-row caps">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+        <div class="glyph-display-row lower">abcdefghijklmnopqrstuvwxyz</div>
+        <div class="glyph-display-row nums">0123456789  &  —  %  $  ( )  [ ]  /</div>
+      </div>
+
+      <div class="feature-item" style="border-top: 1px solid var(--border-light); padding-top: 20px;">
+        <div class="feature-name">Font Family Specs</div>
+        <div class="feature-detail">
+          18 Styles (9 Weights: Thin to Black + True Italics) • 2,548 glyphs per font • TTF, OTF, WOFF2 • Licensed under SIL Open Font License 1.1 (Free for personal &amp; commercial use)
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Geometry & Terminals -->
+    <section>
+      <div class="section-meta">Collab Sans  /  02 Terminals</div>
+      <h2 class="section-title" style="margin-top: 0;">Terminal Geometry</h2>
+
+      <div class="comparison-grid">
+        <div>
+          <div class="comparison-col-label">Inter (Original)</div>
+          <div class="comparison-glyphs" style="font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 700; color: #525252;">
+            C r t &
+          </div>
+          <p class="comparison-desc">
+            Sharp 90° cut terminals designed for screen micro-legibility and mathematical precision.
+          </p>
+        </div>
+
+        <div>
+          <div class="comparison-col-label highlight">Collab Sans (Derivative)</div>
+          <div class="comparison-glyphs" style="font-weight: 700; color: #0a0a0a;">
+            C r t &
+          </div>
+          <p class="comparison-desc">
+            Tangent-continuous circular caps that introduce organic warmth without optical distortion.
+          </p>
+        </div>
+      </div>
+
+      <div class="body-text">
+        <p style="margin-bottom: 16px;">
+          I am not a professional developer or traditional type designer. My background is rooted in organizational systems, finance, and building scalable enterprise workflows as a citizen developer (<a href="/" class="inline-link">yugal.one</a>). For me, <strong>minimalism is not a design preference—it is a way of living and working</strong>: stripping away noise so function and clarity become obvious.
+        </p>
+        <p style="margin-bottom: 16px;">
+          That obsession with clarity drew me directly to Rasmus Andersson’s <strong>Inter</strong>—the undisputed benchmark of modern digital interface typography. Across product interfaces and data dashboards, I wanted that exact mathematical precision and micro-legibility, but with the warmth and understated minimalism that only genuinely rounded terminals can bring.
+        </p>
+        <p>
+          Rather than drawing outlines by hand, I built this entire font family using <strong>Antigravity</strong> (Google's agentic AI coding environment). Together, we engineered an algorithmic geometry engine in Python that traversed Inter's 2,548 glyphs contour-by-contour: curving stroke ends with tangent-continuous semicircular caps and preserving proportional inner ink-traps so text remains razor-sharp at 11px–14px UI sizes.
+        </p>
+      </div>
+    </section>
+
+    <!-- 03 Interactive Tester -->
+    <section>
+      <div class="section-meta">Collab Sans  /  03 Interactive Tester</div>
+      <h2 class="section-title" style="margin-top: 0;">Live Specimen Canvas</h2>
+
+      <div class="tester-toolbar">
+        <div class="weight-selector" id="weightSelector">
+          <button class="w-btn" data-weight="100" onclick="setWeight(100)">100</button>
+          <button class="w-btn" data-weight="200" onclick="setWeight(200)">200</button>
+          <button class="w-btn" data-weight="300" onclick="setWeight(300)">300</button>
+          <button class="w-btn active" data-weight="400" onclick="setWeight(400)">400</button>
+          <button class="w-btn" data-weight="500" onclick="setWeight(500)">500</button>
+          <button class="w-btn" data-weight="600" onclick="setWeight(600)">600</button>
+          <button class="w-btn" data-weight="700" onclick="setWeight(700)">700</button>
+          <button class="w-btn" data-weight="800" onclick="setWeight(800)">800</button>
+          <button class="w-btn" data-weight="900" onclick="setWeight(900)">900</button>
+        </div>
+
+        <div class="tester-adjusters">
+          <div class="slider-wrap">
+            <span>Size</span>
+            <input type="range" id="sizeSlider" min="18" max="96" value="52" oninput="setSize(this.value)">
+            <span id="sizeVal" style="font-feature-settings: 'tnum' 1; width: 40px;">52px</span>
+          </div>
+          <button class="italic-btn" id="italicBtn" onclick="toggleItalic()">Italic</button>
+        </div>
+      </div>
+
+      <!-- Editable Canvas -->
+      <div class="editable-canvas" id="canvas" contenteditable="true" spellcheck="false">
+        Clarity over noise, intent over decoration, function over abstraction.
+      </div>
+
+      <!-- Preset Text Links -->
+      <div class="preset-links">
+        <span>Try:</span>
+        <button class="preset-btn" onclick="setText('Clarity over noise, intent over decoration, function over abstraction.')">Manifesto</button>
+        <button class="preset-btn" onclick="setText('Sphinx of black quartz, judge my vow. 1234567890')">Pangram</button>
+        <button class="preset-btn" onclick="setText('Quarterly Revenue: $1,489,200 (+18.4% YoY) • SLA: 99.98%')">Metrics &amp; Figures</button>
+        <button class="preset-btn" onclick="setText('ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789')">Alphabet</button>
+      </div>
+    </section>
+
+    <!-- 04 Weight Progression -->
+    <section>
+      <div class="section-meta">Collab Sans  /  04 Weights</div>
+      <h2 class="section-title" style="margin-top: 0;">The Weight Progression</h2>
+
+      <div class="weight-stack">
+        <div class="weight-row">
+          <div class="weight-num">100</div>
+          <div class="weight-sample" style="font-weight: 100;">Every complex system began as a simple system that worked.</div>
+        </div>
+        <div class="weight-row">
+          <div class="weight-num">200</div>
+          <div class="weight-sample" style="font-weight: 200;">Minimalism is not a design preference—it is a way of living.</div>
+        </div>
+        <div class="weight-row">
+          <div class="weight-num">300</div>
+          <div class="weight-sample" style="font-weight: 300;">Balancing clean, accessible design with enterprise governance.</div>
+        </div>
+        <div class="weight-row">
+          <div class="weight-num">400</div>
+          <div class="weight-sample" style="font-weight: 400;">Clarity over noise, intent over decoration, function over abstraction.</div>
+        </div>
+        <div class="weight-row">
+          <div class="weight-num">500</div>
+          <div class="weight-sample" style="font-weight: 500;">Mathematical precision softened into approachable warmth.</div>
+        </div>
+        <div class="weight-row">
+          <div class="weight-num">600</div>
+          <div class="weight-sample" style="font-weight: 600;">Tangent-continuous terminals with preserved optical ink-traps.</div>
+        </div>
+        <div class="weight-row">
+          <div class="weight-num">700</div>
+          <div class="weight-sample" style="font-weight: 700;">Sub-contour adaptive scaling across small symbols and punctuation.</div>
+        </div>
+        <div class="weight-row">
+          <div class="weight-num">800</div>
+          <div class="weight-sample" style="font-weight: 800;">Derived from Inter, engineered with Antigravity.</div>
+        </div>
+        <div class="weight-row">
+          <div class="weight-num">900</div>
+          <div class="weight-sample" style="font-weight: 900;">Collab Sans — Free for personal and commercial use.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Web Usage -->
+    <section>
+      <div class="section-meta">Collab Sans  /  05 Web Usage</div>
+      <h2 class="section-title" style="margin-top: 0;">Self-Host with CSS</h2>
+
+      <pre class="code-snippet"><code>/* Include in your CSS */
+@font-face {
+  font-family: 'Collab Sans';
+  src: url('/fonts/woff2/CollabSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+body {
+  font-family: 'Collab Sans', -apple-system, sans-serif;
+}</code></pre>
+      
+      <div class="btn-group">
+        <a href="https://github.com/yugalone/collab-sans" target="_blank" rel="noopener" class="btn btn-primary">
+          View on GitHub
+        </a>
+        <a href="https://scripts.sil.org/OFL" target="_blank" rel="noopener" class="btn btn-secondary">
+          SIL Open Font License 1.1
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div>
+        <strong>Collab Sans</strong> • Designed by <a href="/" class="inline-link">Yugal</a> with Antigravity
+      </div>
+      <div class="footer-nav">
+        <a href="/">Home</a>
+        <a href="/collab">Collab</a>
+        <a href="/collab-for-appsheet">Collab for AppSheet</a>
+        <a href="/flows">Flows</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentWeight = 400;
+    let isItalic = false;
+
+    function setWeight(w) {
+      currentWeight = w;
+      document.getElementById('canvas').style.fontWeight = w;
+      document.querySelectorAll('.w-btn').forEach(btn => {
+        btn.classList.toggle('active', parseInt(btn.dataset.weight) === w);
+      });
+    }
+
+    function setSize(s) {
+      document.getElementById('canvas').style.fontSize = s + 'px';
+      document.getElementById('sizeVal').innerText = s + 'px';
+    }
+
+    function toggleItalic() {
+      isItalic = !isItalic;
+      document.getElementById('canvas').style.fontStyle = isItalic ? 'italic' : 'normal';
+      document.getElementById('italicBtn').classList.toggle('active', isItalic);
+    }
+
+    function setText(t) {
+      document.getElementById('canvas').innerText = t;
+    }
+  </script>
+</body>
+</html>
