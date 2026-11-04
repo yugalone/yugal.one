@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Collab for AppSheet — Browser Extension for AppSheet | yugal.one</title>
+  <title>Collab for AppSheet — Browser Extension | yugal.one</title>
   <meta name="description" content="A lightweight Chrome extension designed to subtly elevate your AppSheet experience with auto-sync, Collab Sans typography, filtered table printing, and 100% local client-side execution.">
   <link rel="canonical" href="https://yugal.one/collab-for-appsheet">
   <link rel="icon" type="image/svg+xml" href="/collab-for-appsheet/Logo/Collab-for-AppSheet-500px-fit.svg">
@@ -11,7 +11,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Collab for AppSheet — Browser Extension for AppSheet">
-  <meta property="og:description" content="Subtly elevate your AppSheet experience: background auto-sync, Collab Sans typography toggle, filtered table printing, and 100% local security.">
+  <meta property="og:description" content="Auto-sync, Collab Sans typography toggle, filtered table printing, and 100% local client-side security for AppSheet.">
   <meta property="og:url" content="https://yugal.one/collab-for-appsheet">
   <meta property="og:type" content="website">
 
@@ -27,119 +27,92 @@
 </head>
 <body>
 
-  <!-- Unified Navigation -->
+  <!-- Minimalist Header -->
   <header class="site-header">
-    <div class="header-container">
-      <a href="/" class="brand-link">
-        <span class="brand-icon">
-          <img src="/collab-for-appsheet/Logo/Collab-for-AppSheet-500px-fit.svg" alt="Collab for AppSheet">
-        </span>
-        <span class="brand-title">yugal.one</span>
-      </a>
-
-      <nav class="site-nav">
+    <nav class="site-nav">
+      <a href="/" class="brand-title">yugal.one</a>
+      <div class="nav-links">
         <a href="/" class="nav-link">Yugal</a>
         <a href="/collab" class="nav-link">Collab</a>
         <a href="/collab-sans" class="nav-link">Collab Sans</a>
         <a href="/collab-for-appsheet" class="nav-link active">Collab for AppSheet</a>
         <a href="/flows" class="nav-link">Flows</a>
-        <a href="https://pages.razorpay.com/yugalone" target="_blank" rel="noopener" class="nav-cta">☕ Support</a>
-      </nav>
-    </div>
+      </div>
+    </nav>
   </header>
 
-  <!-- Main Content Wrap -->
+  <!-- Main Wrap -->
   <main class="page-wrap">
 
-    <!-- Hero Section -->
-    <div class="hero-header">
-      <div class="hero-logo">
-        <img src="/collab-for-appsheet/Logo/Collab-for-AppSheet-500px-fit.svg" alt="Collab for AppSheet Logo">
-      </div>
-      <div class="hero-content">
-        <div class="section-meta">Browser Extension</div>
-        <h1 class="page-title">Collab for AppSheet</h1>
-      </div>
+    <div class="page-header">
+      <h1 class="page-title">Collab for AppSheet</h1>
+      <div class="page-subtitle">Chrome browser extension for AppSheet</div>
     </div>
 
-    <p class="page-lead">
-      A lightweight browser extension designed to subtly elevate your AppSheet experience, seamlessly integrating into your everyday workflow.
+    <p class="lead">
+      A lightweight extension designed to subtly elevate your AppSheet experience, seamlessly integrating into your everyday workflow.
     </p>
 
-    <div class="btn-group">
-      <a href="https://chromewebstore.google.com/detail/pnladnoiagcckfbccpkfbpimjmmbiaok?utm_source=item-share-cb" target="_blank" rel="noopener" class="btn btn-primary">
-        Add to Chrome
-      </a>
-      <a href="https://www.youtube.com/watch?v=HgTk--aEZ_w" target="_blank" rel="noopener" class="btn btn-secondary">
-        Watch Demo on YouTube
-      </a>
+    <div class="action-links">
+      <a href="https://chromewebstore.google.com/detail/pnladnoiagcckfbccpkfbpimjmmbiaok?utm_source=item-share-cb" target="_blank" rel="noopener" class="action-link">Add to Chrome <span class="arrow">↗</span></a>
+      <a href="https://www.youtube.com/watch?v=HgTk--aEZ_w" target="_blank" rel="noopener" class="action-link">Watch Demo on YouTube <span class="arrow">↗</span></a>
     </div>
 
-    <!-- Video Walkthrough -->
-    <section>
-      <div class="section-meta">Walkthrough</div>
-      <div class="video-frame">
-        <iframe
-          src="https://www.youtube.com/embed/HgTk--aEZ_w"
-          title="Introducing Collab for Chrome"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
+    <!-- Video Embed -->
+    <div class="video-frame">
+      <iframe
+        src="https://www.youtube.com/embed/HgTk--aEZ_w"
+        title="Introducing Collab for Chrome"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- Capabilities -->
+    <div class="section-label">Core Capabilities</div>
+    <div class="spec-list">
+
+      <div class="spec-item">
+        <div class="spec-name">Auto-sync</div>
+        <div class="spec-desc">Keep your data up to date by turning on automated background sync and setting a refresh interval that suits your operational needs.</div>
       </div>
-    </section>
 
-    <!-- Capabilities Section -->
-    <section>
-      <div class="section-meta">Capabilities</div>
-      <h2 class="section-title">Core Features</h2>
-
-      <div class="feature-list">
-        <div class="feature-item">
-          <div class="feature-name">Auto-sync</div>
-          <div class="feature-detail">Keep your data up to date by turning on auto-sync and setting a sync interval that suits your operational needs.</div>
-        </div>
-
-        <div class="feature-item">
-          <div class="feature-name">Sleek typography</div>
-          <div class="feature-detail">Elevate your interface with a simple switch that applies <a href="/collab-sans" class="inline-link">Collab Sans</a> or <a href="https://rsms.me/inter/" target="_blank" rel="noopener" class="inline-link">Inter</a> fonts across the system, delivering a clean and minimalist visual experience.</div>
-        </div>
-
-        <div class="feature-item">
-          <div class="feature-name">Seamless printing</div>
-          <div class="feature-detail">Effortlessly print your table and deck views that preserve all filters, groupings, and their corresponding aggregates, while seamlessly embedding your branding, title, and metadata.</div>
-        </div>
-
-        <div class="feature-item">
-          <div class="feature-name">100% local &amp; secure</div>
-          <div class="feature-detail">Process data directly within your browser sandbox, ensuring your business data is never transmitted to any external servers or third-party APIs.</div>
-        </div>
+      <div class="spec-item">
+        <div class="spec-name">Sleek Typography</div>
+        <div class="spec-desc">Elevate your interface with a simple switch that applies <a href="/collab-sans" class="inline-link">Collab Sans</a> or <a href="https://rsms.me/inter/" target="_blank" rel="noopener" class="inline-link">Inter</a> fonts across the system, delivering a clean and minimalist visual experience.</div>
       </div>
-    </section>
 
-    <!-- Governance & Legal Links -->
-    <section>
-      <div class="section-meta">Governance &amp; Support</div>
-      <div style="display: flex; gap: 24px; flex-wrap: wrap; margin-top: 16px;">
-        <a href="https://docs.google.com/document/d/1j2jr3ARgTomMcEluGugr3Yt7GiZyslHG/view" target="_blank" rel="noopener" class="inline-link">Privacy Policy</a>
-        <a href="https://docs.google.com/document/d/1PstV4HSLpxZG_pibqPvkxS_Ad-0Tgu2H/view" target="_blank" rel="noopener" class="inline-link">Terms of Service</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGfVYYC7NUIipL3ScGCyAtTzJAMvPHo81XvtdLDvgKhzW56Q/viewform" target="_blank" rel="noopener" class="inline-link">Feedback &amp; Feature Requests</a>
+      <div class="spec-item">
+        <div class="spec-name">Seamless Printing</div>
+        <div class="spec-desc">Effortlessly print table and deck views that preserve active filters, groupings, and aggregates, while embedding your branding, title, and metadata.</div>
       </div>
-    </section>
+
+      <div class="spec-item">
+        <div class="spec-name">100% Local &amp; Secure</div>
+        <div class="spec-desc">All DOM processing runs locally within your browser sandbox. Your data is never transmitted to any external servers or third-party APIs.</div>
+      </div>
+
+    </div>
+
+    <!-- Governance -->
+    <div class="section-label">Governance &amp; Support</div>
+    <div class="action-links">
+      <a href="https://docs.google.com/document/d/1j2jr3ARgTomMcEluGugr3Yt7GiZyslHG/view" target="_blank" rel="noopener" class="action-link">Privacy Policy <span class="arrow">↗</span></a>
+      <a href="https://docs.google.com/document/d/1PstV4HSLpxZG_pibqPvkxS_Ad-0Tgu2H/view" target="_blank" rel="noopener" class="action-link">Terms of Service <span class="arrow">↗</span></a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGfVYYC7NUIipL3ScGCyAtTzJAMvPHo81XvtdLDvgKhzW56Q/viewform" target="_blank" rel="noopener" class="action-link">Feedback &amp; Feature Requests <span class="arrow">↗</span></a>
+    </div>
 
   </main>
 
-  <!-- Global Footer -->
+  <!-- Minimalist Footer -->
   <footer class="site-footer">
-    <div class="footer-container">
-      <div>
-        <strong>Collab for AppSheet</strong> • Built by <a href="/" class="inline-link">Yugal</a>
-      </div>
-      <div class="footer-nav">
-        <a href="/">Home</a>
-        <a href="/collab">Collab</a>
-        <a href="/collab-sans">Collab Sans</a>
-        <a href="/flows">Flows</a>
-      </div>
+    <div>yugal.one &bull; 2026</div>
+    <div class="footer-links">
+      <a href="/" class="footer-link">Home</a>
+      <a href="/collab" class="footer-link">Collab</a>
+      <a href="/collab-sans" class="footer-link">Collab Sans</a>
+      <a href="/flows" class="footer-link">Flows</a>
+      <a href="https://pages.razorpay.com/yugalone" target="_blank" rel="noopener" class="footer-link">Support</a>
     </div>
   </footer>
 
