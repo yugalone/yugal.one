@@ -139,7 +139,6 @@
    -------------------------------------------------------------------------- */
 :root {
   --bg: #ffffff;
-  --bg-subtle: #f9f9fb;
   --text-main: #111111;
   --text-body: #2e2e2e;
   --text-muted: #6e6e73;
@@ -270,7 +269,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-faint);
-  margin: 56px 0 20px;
+  margin: 52px 0 20px;
 }
 
 /* Prose */
@@ -437,92 +436,61 @@ a.inline-link:hover {
 }
 
 /* --------------------------------------------------------------------------
-   Showcase Image & Feature Gallery (Collab for AppSheet)
+   Collab for AppSheet Asset Flow (No Background Colors)
    -------------------------------------------------------------------------- */
-.showcase-banner {
+.asset-figure {
   width: 100%;
-  margin: 28px 0 36px;
-  border-radius: 6px;
+  margin: 16px 0 28px;
+  border-radius: 4px;
   overflow: hidden;
   border: 1px solid var(--line);
-  background: var(--bg-subtle);
 }
 
-.showcase-banner img {
+.asset-figure img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.feature-media-item {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 20px 0;
+.feature-block {
+  padding: 20px 0 12px;
   border-bottom: 1px solid var(--line-faint);
 }
 
-.feature-media-item:last-child {
+.feature-block:last-child {
   border-bottom: none;
 }
 
-.feature-media-header {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.feature-media-name {
+.feature-title {
+  font-size: 14px;
   font-weight: 500;
   color: var(--text-main);
-  font-size: 14px;
+  margin-bottom: 4px;
 }
 
-.feature-media-desc {
-  color: var(--text-muted);
+.feature-text {
   font-size: 13.5px;
   line-height: 1.65;
-}
-
-.feature-screenshot {
-  width: 100%;
-  max-width: 100%;
-  border-radius: 4px;
-  border: 1px solid var(--line);
-  display: block;
-  background: #ffffff;
+  color: var(--text-muted);
+  margin-bottom: 14px;
 }
 
 /* --------------------------------------------------------------------------
-   Minimalist Podcast Audio Player (Collab)
+   Minimalist Podcast Player (Collab — Transparent, No Background Colors)
    -------------------------------------------------------------------------- */
 .podcast-player {
-  background: #fafafc;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 20px 22px;
-  margin: 28px 0 40px;
+  background: transparent;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 20px 0;
+  margin: 28px 0 36px;
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-.podcast-header {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.podcast-label {
-  font-size: 11px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-faint);
-}
-
 .podcast-title {
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 500;
   color: var(--text-main);
 }
@@ -534,8 +502,8 @@ a.inline-link:hover {
 }
 
 .play-btn {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background: var(--text-main);
   color: #ffffff;
@@ -545,20 +513,16 @@ a.inline-link:hover {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: transform 0.15s ease, opacity 0.15s ease;
+  transition: opacity 0.15s ease;
 }
 
 .play-btn:hover {
-  opacity: 0.88;
-}
-
-.play-btn:active {
-  transform: scale(0.95);
+  opacity: 0.85;
 }
 
 .play-btn svg {
-  width: 14px;
-  height: 14px;
+  width: 13px;
+  height: 13px;
 }
 
 .player-scrubber {
@@ -570,11 +534,11 @@ a.inline-link:hover {
 
 .seek-slider {
   width: 100%;
-  height: 4px;
+  height: 2px;
   -webkit-appearance: none;
   appearance: none;
-  background: #e4e4e7;
-  border-radius: 2px;
+  background: var(--line);
+  border-radius: 1px;
   outline: none;
   cursor: pointer;
 }
@@ -582,16 +546,16 @@ a.inline-link:hover {
 .seek-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: var(--text-main);
   cursor: pointer;
 }
 
 .seek-slider::-moz-range-thumb {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: var(--text-main);
   border: none;
@@ -611,9 +575,9 @@ a.inline-link:hover {
   border: 1px solid var(--line);
   border-radius: 4px;
   font-family: inherit;
-  font-size: 11.5px;
+  font-size: 11px;
   color: var(--text-muted);
-  padding: 4px 8px;
+  padding: 3px 7px;
   cursor: pointer;
   transition: all 0.15s ease;
 }
@@ -634,16 +598,14 @@ a.inline-link:hover {
   border-top: 1px solid var(--line-faint);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
+  justify-content: flex-start;
   font-size: 13.5px;
 }
 
 .footer-links {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 24px;
   flex-wrap: wrap;
 }
 
@@ -662,31 +624,6 @@ a.inline-link:hover {
 
 .footer-link:hover {
   text-decoration-color: var(--text-main);
-}
-
-.back-to-top {
-  background: none;
-  border: none;
-  font-family: inherit;
-  font-size: 12.5px;
-  color: var(--text-muted);
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 8px;
-  border-radius: 4px;
-  transition: all 0.15s ease;
-}
-
-.back-to-top:hover {
-  color: var(--text-main);
-  background: rgba(0, 0, 0, 0.04);
-}
-
-.back-to-top.active-feedback {
-  background: rgba(0, 0, 0, 0.08);
-  color: var(--text-main);
 }
 
 /* Floating Back to Top Button */
@@ -749,9 +686,9 @@ a.inline-link:hover {
     gap: 2px;
   }
   .site-footer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
     padding-bottom: 48px;
+  }
+  .footer-links {
+    gap: 16px;
   }
 }

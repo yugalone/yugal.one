@@ -7,49 +7,24 @@
   'use strict';
 
   // -------------------------------------------------------------------------
-  // 1. Back to Top Visual Feedback & Smooth Scroll
+  // 1. Floating Back to Top Button
   // -------------------------------------------------------------------------
   function setupBackToTop() {
-    const footerBtn = document.getElementById('backToTop');
-    
-    // Create floating indicator
     const floatingBtn = document.createElement('button');
     floatingBtn.className = 'floating-top';
     floatingBtn.setAttribute('aria-label', 'Back to top');
     floatingBtn.innerHTML = 'Top &uarr;';
     document.body.appendChild(floatingBtn);
 
-    function scrollToTop() {
+    floatingBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      if (footerBtn) {
-        footerBtn.classList.add('active-feedback');
-        setTimeout(() => footerBtn.classList.remove('active-feedback'), 600);
-      }
-    }
+    });
 
-    if (footerBtn) footerBtn.addEventListener('click', scrollToTop);
-    floatingBtn.addEventListener('click', scrollToTop);
-
-    // Scroll listener for visual cues
     window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-
-      // Floating button visibility
-      if (scrollY > 350) {
+      if (window.scrollY > 300) {
         floatingBtn.classList.add('visible');
       } else {
         floatingBtn.classList.remove('visible');
-      }
-
-      // Visual feedback when reaching the very bottom of the page
-      if (footerBtn) {
-        if (scrollY + windowHeight >= documentHeight - 60) {
-          footerBtn.classList.add('active-feedback');
-        } else {
-          footerBtn.classList.remove('active-feedback');
-        }
       }
     }, { passive: true });
   }
