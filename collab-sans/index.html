@@ -163,18 +163,6 @@
       color: var(--text-main);
     }
 
-    .code-box {
-      font-family: var(--font-mono);
-      font-size: 12.5px;
-      line-height: 1.6;
-      background: #fafafa;
-      padding: 16px;
-      border-radius: 4px;
-      border: 1px solid var(--line-faint);
-      overflow-x: auto;
-      margin: 16px 0;
-      color: var(--text-body);
-    }
   </style>
 </head>
 <body>
@@ -288,7 +276,9 @@
     <!-- Web Integration -->
     <div class="section-label">Web Integration</div>
     <p>Include Collab Sans directly in your CSS:</p>
-    <div class="code-box">@font-face {
+    <div class="code-wrap">
+      <button type="button" class="copy-btn" data-copy-target="integrationSnippet" aria-label="Copy snippet">Copy</button>
+      <pre class="code-box" id="integrationSnippet"><code>@font-face {
   font-family: 'Collab Sans';
   src: url('/fonts/woff2/CollabSans-Regular.woff2') format('woff2');
   font-weight: 400;
@@ -297,13 +287,14 @@
 
 body {
   font-family: 'Collab Sans', -apple-system, sans-serif;
-}</div>
+}</code></pre>
+    </div>
 
     <!-- Governance -->
     <div class="section-label">Governance</div>
     <div class="action-links">
       <a href="https://scripts.sil.org/OFL" target="_blank" rel="noopener" class="action-link">SIL Open Font License 1.1 <span class="arrow">↗</span></a>
-      <a href="https://github.com/yugalone/collab-sans" target="_blank" rel="noopener" class="action-link">GitHub Repository <span class="arrow">↗</span></a>
+      <a href="https://rsms.me/inter/" target="_blank" rel="noopener" class="action-link">Derived from Inter <span class="arrow">↗</span></a>
     </div>
 
   </main>
@@ -312,7 +303,7 @@ body {
   <footer class="site-footer">
     <div class="footer-links">
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGfVYYC7NUIipL3ScGCyAtTzJAMvPHo81XvtdLDvgKhzW56Q/viewform" target="_blank" rel="noopener" class="footer-link">Drop a message <span class="arrow">↗</span></a>
-      <a href="mailto:contact@yugal.one" class="footer-link">Email <span class="arrow">↗</span></a>
+      <a href="mailto:contact@yugal.one" target="_blank" rel="noopener" class="footer-link">Email <span class="arrow">↗</span></a>
       <a href="https://pages.razorpay.com/yugalone" target="_blank" rel="noopener" class="footer-link">Support my work <span class="arrow">↗</span></a>
     </div>
   </footer>

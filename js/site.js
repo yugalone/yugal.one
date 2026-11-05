@@ -155,10 +155,61 @@
     }
   }
 
+  // -------------------------------------------------------------------------
+  // 4. Code Snippet Copy Buttons
+  // -------------------------------------------------------------------------
+  function setupCopyButtons() {
+    document.querySelectorAll('[data-copy-target]').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const targetId = btn.getAttribute('data-copy-target');
+        const targetEl = document.getElementById(targetId);
+        if (!targetEl) return;
+        const text = (targetEl.innerText || targetEl.textContent || '').trim();
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+          }
+          const orig = btn.textContent;
+          btn.textContent = 'Copied!';
+          btn.classList.add('copied');
+          setTimeout(() => {
+            btn.textContent = orig;
+            btn.classList.remove('copied');
+          }, 2000);
+        } catch (err) {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.textContent = 'Copied!';
+          btn.classList.add('copied');
+          setTimeout(() => {
+            btn.textContent = 'Copy';
+            btn.classList.remove('copied');
+          }, 2000);
+        }
+      });
+    });
+  }
+
   // Initialize all on DOM ready
   document.addEventListener('DOMContentLoaded', () => {
     setupBackToTop();
     setupTactileSound();
     setupPodcastPlayer();
+    setupCopyButtons();
   });
 })();
