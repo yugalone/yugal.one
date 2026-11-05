@@ -61,54 +61,71 @@
 
       <div class="spec-item">
         <div class="spec-name">Multi-source Sync</div>
-        <div class="spec-desc">Load Google Sheets tabs, Google Forms responses, or Drive CSV files while preserving exact number, date, and currency formatting.</div>
+        <div class="spec-desc">Load Google Sheets tabs, Google Forms responses, or Drive CSV files with automatic RFC-4180 delimiter detection while preserving exact number, date, and currency formatting.</div>
       </div>
 
       <div class="spec-item">
         <div class="spec-name">Record Selection</div>
-        <div class="spec-desc">Search rows, filter by column rules or row ranges, and pick specific records to merge—or export the entire dataset in batch.</div>
+        <div class="spec-desc">Visual row selector with multi-column live search, select all / clear controls, and row checkboxes to merge specific records or process entire datasets in batch.</div>
       </div>
 
       <div class="spec-item">
-        <div class="spec-name">Data Chips</div>
-        <div class="spec-desc">Type <code>/</code> to insert merge fields as Text, Image, Link, QR Code, or scannable Barcode, or type <code>_</code> for system tokens like dates, record numbers, and UUIDs.</div>
+        <div class="spec-name">Trigger Commands</div>
+        <div class="spec-desc">Type <code class="inline-code">/</code> to insert merge fields, <code class="inline-code">_</code> for system tokens (dates, record counters, UUIDs), <code class="inline-code">//</code> to paste inline images, or <code class="inline-code">|</code> to insert custom tables.</div>
       </div>
 
       <div class="spec-item">
-        <div class="spec-name">Interactive Chips</div>
-        <div class="spec-desc">Click any chip to style it, resize it, or configure fallback values for missing data fields without breaking layout flow.</div>
+        <div class="spec-name">Smart Data Chips</div>
+        <div class="spec-desc">Convert any field into Text, Dynamic Image, Clickable Link, 2D QR Code, or Scannable Code 39 Barcode with custom fallback values for missing records.</div>
+      </div>
+
+      <div class="spec-item">
+        <div class="spec-name">Interactive Tables</div>
+        <div class="spec-desc">Insert custom row &times; column tables with visual grid selection and inline action controls to add, remove, and resize columns without disrupting canvas flow.</div>
       </div>
 
       <div class="spec-item">
         <div class="spec-name">Live Page Canvas</div>
-        <div class="spec-desc">Design on a scaled print canvas with margin guides, inner frame borders, zoom controls, and interactive record-by-record preview.</div>
+        <div class="spec-desc">Design on a precision-scaled print canvas with visual margin guides, optional inner frame borders, zoom controls (zoom in, zoom out, fit to screen), and full typography styling.</div>
       </div>
 
       <div class="spec-item">
-        <div class="spec-name">Starter Templates</div>
-        <div class="spec-desc">Start fast with built-in layouts for invoices, business letters, certificates, shipping labels, product SKUs, and barcodes.</div>
+        <div class="spec-name">Paper &amp; Label Presets</div>
+        <div class="spec-desc">Choose from A4, Letter, A5, A6, Shipping 4&times;6&Prime;, Address Label 4&times;2&Prime;, Product Label 3&times;2&Prime;, Badge 3&times;4&Prime;, or define custom millimeter dimensions in portrait or landscape.</div>
       </div>
 
       <div class="spec-item">
-        <div class="spec-name">Flexible Page Sizes</div>
-        <div class="spec-desc">Pick standard document and label presets or specify custom millimeter dimensions in portrait or landscape orientation.</div>
+        <div class="spec-name">Real-Time Stepper</div>
+        <div class="spec-desc">Step through records record-by-record directly on canvas to inspect live data bindings and verify edge-case text wrapping before generating files.</div>
       </div>
 
       <div class="spec-item">
         <div class="spec-name">Quota-Free Export</div>
-        <div class="spec-desc">Download a single combined file or a .zip of individual PDF and Markdown files, save directly to Google Drive, or print straight from the browser.</div>
+        <div class="spec-desc">Direct rendering engine that bypasses Google Docs API quotas entirely. Download a single combined file or a .zip of individual PDF or Markdown documents.</div>
+      </div>
+
+      <div class="spec-item">
+        <div class="spec-name">Direct Print &amp; Drive Save</div>
+        <div class="spec-desc">Send layouts straight to your physical printer (<code class="inline-code">window.print</code>) or save generated files directly to the <code class="inline-code">Flows/Files</code> folder in your personal Google Drive.</div>
       </div>
 
       <div class="spec-item">
         <div class="spec-name">Dynamic Naming</div>
-        <div class="spec-desc">Name output files automatically using any merge field or system token from your connected dataset.</div>
+        <div class="spec-desc">Automatically format output file names using any combination of merge fields and system tokens (e.g. <code class="inline-code">{{ORDER_ID}}-Invoice-{{_date}}</code>).</div>
       </div>
 
       <div class="spec-item">
         <div class="spec-name">Portable Projects</div>
-        <div class="spec-desc">Save projects directly to Google Drive or export and import lightweight, portable <code>.flows.json</code> files.</div>
+        <div class="spec-desc">Auto-save projects directly to <code class="inline-code">Flows/Projects</code> in Google Drive, or export and import lightweight, portable <code class="inline-code">.json</code> project definitions for complete offline backup.</div>
       </div>
 
+    </div>
+
+    <!-- Governance -->
+    <div class="section-label">Governance</div>
+    <div class="action-links">
+      <a href="PRIVACY_POLICY.md" target="_blank" rel="noopener" class="action-link">Privacy Policy <span class="arrow">↗</span></a>
+      <a href="TERMS_OF_SERVICE.md" target="_blank" rel="noopener" class="action-link">Terms of Service <span class="arrow">↗</span></a>
     </div>
 
   </main>
