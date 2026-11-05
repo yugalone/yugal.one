@@ -245,7 +245,7 @@ body {
 
 /* Headings */
 .page-header {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .page-title {
@@ -254,13 +254,6 @@ body {
   line-height: 1.25;
   letter-spacing: -0.015em;
   color: var(--text-main);
-  margin-bottom: 6px;
-}
-
-.page-subtitle {
-  font-size: 14px;
-  color: var(--text-muted);
-  font-weight: 400;
 }
 
 .section-label {
@@ -278,13 +271,6 @@ p {
   line-height: 1.75;
   color: var(--text-body);
   margin-bottom: 20px;
-}
-
-p.lead {
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--text-main);
-  margin-bottom: 24px;
 }
 
 p:last-child {
