@@ -587,12 +587,18 @@ a.inline-link:hover {
   line-height: 1.6;
   background: transparent;
   border: 1px solid var(--line);
-  padding: 16px 64px 16px 16px;
+  padding: 16px 48px 16px 16px;
   border-radius: 2px;
   overflow-x: auto;
   color: var(--text-body);
   white-space: pre;
   margin: 0;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.code-box::-webkit-scrollbar {
+  display: none; /* WebKit (Chrome, Safari) */
 }
 
 .code-box code {
@@ -603,19 +609,20 @@ a.inline-link:hover {
 
 .copy-btn {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  font-family: inherit;
-  font-size: 12px;
-  font-weight: 500;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: var(--text-muted);
   background: var(--bg);
   border: 1px solid var(--line);
   border-radius: 2px;
-  padding: 3px 8px;
+  padding: 0;
   cursor: pointer;
-  transition: all 0.15s ease;
-  line-height: 1.4;
+  transition: color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
 }
 
 .copy-btn:hover {
@@ -623,10 +630,21 @@ a.inline-link:hover {
   border-color: var(--text-main);
 }
 
+.copy-btn:active {
+  transform: scale(0.92);
+}
+
 .copy-btn.copied {
   color: var(--text-main);
   border-color: var(--text-main);
-  font-weight: 600;
+}
+
+.copy-btn.copied .copy-icon {
+  display: none !important;
+}
+
+.copy-btn.copied .check-icon {
+  display: block !important;
 }
 
 /* --------------------------------------------------------------------------
