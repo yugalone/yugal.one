@@ -722,9 +722,228 @@ a.inline-link:hover {
 }
 
 /* --------------------------------------------------------------------------
+   Typography Specimen & Comparison Components (Collab Sans)
+   -------------------------------------------------------------------------- */
+.specimen-lead {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--text-body);
+  margin-bottom: 24px;
+}
+
+.glyph-specimen {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 20px 0 14px;
+}
+
+.glyph-line {
+  line-height: 1.3;
+  word-break: break-all;
+}
+
+.glyph-line.caps {
+  font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--text-main);
+}
+
+.glyph-line.lower {
+  font-size: clamp(1.35rem, 3vw, 1.95rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--text-body);
+}
+
+.glyph-line.symbols {
+  font-size: clamp(1.2rem, 2.6vw, 1.7rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.specimen-meta {
+  font-size: 12.5px;
+  color: var(--text-faint);
+  letter-spacing: -0.01em;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+/* Terminal Geometry Comparison */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin: 20px 0 16px;
+}
+
+.comparison-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.col-header {
+  font-size: 11.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-faint);
+  margin-bottom: 12px;
+}
+
+.col-header.active {
+  color: var(--text-main);
+}
+
+.col-sample {
+  font-size: clamp(3.5rem, 7.5vw, 5.25rem);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+}
+
+.col-sample.inter-sample {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text-muted);
+}
+
+.col-sample.collab-sample {
+  font-family: 'Collab Sans', sans-serif;
+  color: var(--text-main);
+}
+
+.col-note {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+/* Interface Typographic Hierarchy */
+.ui-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding-bottom: 24px;
+  margin: 20px 0 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.metric-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-faint);
+  margin-bottom: 6px;
+}
+
+.metric-val {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.ui-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin-bottom: 12px;
+}
+.ui-table-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.ui-table {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 480px;
+}
+
+.ui-table-head, .ui-table-row {
+  display: grid;
+  grid-template-columns: 110px 1fr 140px 100px;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.ui-table-head {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-faint);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line-faint);
+}
+
+.ui-table-row {
+  font-size: 13.5px;
+  padding: 4px 0;
+  color: var(--text-body);
+}
+
+.row-id {
+  font-weight: 500;
+  color: var(--text-main);
+  font-variant-numeric: tabular-nums;
+}
+
+.row-desc {
+  color: var(--text-body);
+}
+
+.row-date {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.row-val {
+  font-weight: 600;
+  color: var(--text-main);
+  font-variant-numeric: tabular-nums;
+}
+
+.num-col {
+  text-align: right;
+}
+
+.inline-code {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-body);
+  background: rgba(0, 0, 0, 0.04);
+  padding: 1px 4px;
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
    Mobile Adjustments
    -------------------------------------------------------------------------- */
 @media (max-width: 600px) {
+  .comparison-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .ui-metrics-row {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
   .site-header {
     padding-top: 36px;
   }
