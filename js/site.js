@@ -7,6 +7,51 @@
   'use strict';
 
   // -------------------------------------------------------------------------
+  // 0. Lenis Smooth Scrolling Engine
+  // -------------------------------------------------------------------------
+  let lenisInstance = null;
+
+  function setupSmoothScroll() {
+    if (typeof Lenis === 'undefined') return;
+
+    // Respect user's motion preferences
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    lenisInstance = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.5,
+      infinite: false,
+    });
+
+    window.lenis = lenisInstance;
+
+    function raf(time) {
+      lenisInstance.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Smooth anchor link scrolling
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', function (e) {
+        const target = this.getAttribute('href');
+        if (target && target !== '#') {
+          const el = document.querySelector(target);
+          if (el) {
+            e.preventDefault();
+            lenisInstance.scrollTo(el, { offset: -80 });
+          }
+        }
+      });
+    });
+  }
+
+  // -------------------------------------------------------------------------
   // 1. Floating Back to Top Button
   // -------------------------------------------------------------------------
   function setupBackToTop() {
@@ -17,7 +62,11 @@
     document.body.appendChild(floatingBtn);
 
     floatingBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (lenisInstance) {
+        lenisInstance.scrollTo(0, { duration: 1.2 });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     });
 
     window.addEventListener('scroll', () => {
@@ -224,6 +273,7 @@
 
   // Initialize all on DOM ready (supporting dynamic or cached loads)
   function init() {
+    setupSmoothScroll();
     setupBackToTop();
     setupTactileSound();
     setupPodcastPlayer();
