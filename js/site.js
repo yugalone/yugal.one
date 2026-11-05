@@ -160,7 +160,7 @@
   // -------------------------------------------------------------------------
   function setupCopyButtons() {
     document.querySelectorAll('[data-copy-target]').forEach((btn) => {
-      btn.addEventListener('click', async () => {
+      btn.addEventListener('click', () => {
         const targetId = btn.getAttribute('data-copy-target');
         const targetEl = document.getElementById(targetId);
         if (!targetEl) return;
@@ -181,40 +181,58 @@
           }, 2000);
         };
 
-        try {
-          if (navigator.clipboard && window.isSecureContext) {
-            await navigator.clipboard.writeText(text);
-          } else {
-            const ta = document.createElement('textarea');
-            ta.value = text;
-            ta.style.position = 'fixed';
-            ta.style.opacity = '0';
-            document.body.appendChild(ta);
-            ta.select();
-            document.execCommand('copy');
-            document.body.removeChild(ta);
-          }
-          showSuccess();
-        } catch (err) {
+        function fallback(str) {
           const ta = document.createElement('textarea');
-          ta.value = text;
+          ta.value = str;
+          ta.setAttribute('readonly', '');
           ta.style.position = 'fixed';
-          ta.style.opacity = '0';
+          ta.style.top = '0';
+          ta.style.left = '-9999px';
+          ta.style.width = '2em';
+          ta.style.height = '2em';
+          ta.style.padding = '0';
+          ta.style.border = 'none';
+          ta.style.outline = 'none';
+          ta.style.boxShadow = 'none';
+          ta.style.background = 'transparent';
           document.body.appendChild(ta);
+          ta.focus();
           ta.select();
-          document.execCommand('copy');
+          ta.setSelectionRange(0, str.length);
+          let ok = false;
+          try {
+            ok = document.execCommand('copy');
+          } catch (e) {
+            ok = false;
+          }
           document.body.removeChild(ta);
-          showSuccess();
+          if (ok) showSuccess();
+        }
+
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(() => {
+            showSuccess();
+          }).catch(() => {
+            fallback(text);
+          });
+        } else {
+          fallback(text);
         }
       });
     });
   }
 
-  // Initialize all on DOM ready
-  document.addEventListener('DOMContentLoaded', () => {
+  // Initialize all on DOM ready (supporting dynamic or cached loads)
+  function init() {
     setupBackToTop();
     setupTactileSound();
     setupPodcastPlayer();
     setupCopyButtons();
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
