@@ -668,8 +668,11 @@ a.inline-link:hover {
     font-size: 13px;
   }
   .work-row {
-    flex-direction: column;
-    gap: 2px;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
   }
   .site-footer {
     padding-bottom: 48px;
