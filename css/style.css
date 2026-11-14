@@ -455,16 +455,18 @@ strong {
 }
 
 /* Hyperlinks */
-a.inline-link {
+a.inline-link,
+p a {
   color: var(--text-main);
   text-decoration: underline;
-  text-underline-offset: 3.5px;
+  text-underline-offset: 5px;
   text-decoration-thickness: 1px;
   text-decoration-color: var(--line);
-  transition: text-decoration-color 0.15s ease;
+  transition: text-decoration-color 0.15s ease, color 0.15s ease;
 }
 
-a.inline-link:hover {
+a.inline-link:hover,
+p a:hover {
   text-decoration-color: var(--text-main);
 }
 
@@ -568,12 +570,15 @@ a.inline-link:hover {
 }
 
 .work-title-text {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1px;
   transition: text-decoration-color 0.15s ease;
 }
 
 .work-title:hover .work-title-text {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration-color: var(--text-main);
 }
 
 .work-meta {
@@ -879,7 +884,7 @@ a.inline-link:hover {
 .footer-link {
   color: var(--text-main);
   text-decoration: underline;
-  text-underline-offset: 4px;
+  text-underline-offset: 5px;
   text-decoration-thickness: 1px;
   text-decoration-color: var(--line);
   font-weight: 450;

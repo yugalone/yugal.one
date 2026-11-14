@@ -147,8 +147,10 @@
       color: var(--text-muted);
       cursor: pointer;
       text-decoration: underline;
-      text-underline-offset: 3px;
+      text-underline-offset: 5px;
+      text-decoration-thickness: 1px;
       text-decoration-color: var(--line);
+      transition: text-decoration-color 0.15s ease, color 0.15s ease;
     }
     .preset-btn:hover {
       color: var(--text-main);
