@@ -510,7 +510,7 @@ a.inline-link:hover {
 .work-list {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 16px;
 }
 
 .work-entry {
