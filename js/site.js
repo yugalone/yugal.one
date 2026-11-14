@@ -132,7 +132,7 @@
 
   function setupTactileSound() {
     document.addEventListener('click', (e) => {
-      const target = e.target.closest('a, button');
+      const target = e.target.closest('a, button, .theme-toggle');
       if (target) {
         playTactileTick();
       }
@@ -271,8 +271,77 @@
     });
   }
 
+  // -------------------------------------------------------------------------
+  // 5. Theme Toggle Engine (Light / Dark) with Persistence & System Match
+  // -------------------------------------------------------------------------
+  function setupTheme() {
+    const toggle = document.querySelector('.theme-toggle');
+    const sunBtn = document.querySelector('.toggle-sun');
+    const moonBtn = document.querySelector('.toggle-moon');
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+
+    function applyTheme(theme, save) {
+      if (save === undefined) save = true;
+      document.documentElement.setAttribute('data-theme', theme);
+      if (toggle) toggle.setAttribute('data-theme', theme);
+      if (sunBtn) sunBtn.setAttribute('aria-checked', theme === 'light' ? 'true' : 'false');
+      if (moonBtn) moonBtn.setAttribute('aria-checked', theme === 'dark' ? 'true' : 'false');
+      if (metaTheme) {
+        metaTheme.setAttribute('content', theme === 'dark' ? '#0c0c0c' : '#ffffff');
+      }
+      if (save) {
+        try {
+          localStorage.setItem('theme', theme);
+        } catch (e) {}
+      }
+    }
+
+    if (toggle) {
+      toggle.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-theme-btn]');
+        if (btn) {
+          const targetTheme = btn.getAttribute('data-theme-btn');
+          applyTheme(targetTheme);
+        } else {
+          const current = document.documentElement.getAttribute('data-theme') || 'light';
+          applyTheme(current === 'dark' ? 'light' : 'dark');
+        }
+      });
+
+      // Keyboard navigation (arrows)
+      toggle.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          applyTheme('dark');
+          if (moonBtn) moonBtn.focus();
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          e.preventDefault();
+          applyTheme('light');
+          if (sunBtn) sunBtn.focus();
+        }
+      });
+    }
+
+    // Listen for OS theme preference changes when no user override is stored
+    try {
+      const media = window.matchMedia('(prefers-color-scheme: dark)');
+      media.addEventListener('change', (e) => {
+        try {
+          if (!localStorage.getItem('theme')) {
+            applyTheme(e.matches ? 'dark' : 'light', false);
+          }
+        } catch (err) {}
+      });
+    } catch (e) {}
+
+    // Initial state sync
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    applyTheme(currentTheme, false);
+  }
+
   // Initialize all on DOM ready (supporting dynamic or cached loads)
   function init() {
+    setupTheme();
     setupSmoothScroll();
     setupBackToTop();
     setupTactileSound();

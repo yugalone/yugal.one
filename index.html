@@ -5,9 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yugal</title>
   <meta name="description" content="Translating real business logic into scalable enterprise workflows, minimal digital tools, and typographic systems.">
+  <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://yugal.one/">
   <link rel="icon" type="image/svg+xml" href="/yugal/Logo/alternate_email_500dp_000000_FILL1_wght400_GRAD0_opsz48.svg">
   <link rel="stylesheet" href="/css/style.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t) {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+        if (t === 'dark') {
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute('content', '#0c0c0c');
+        }
+      } catch (e) {}
+    })();
+  </script>
 
   <!-- Open Graph -->
   <meta property="og:title" content="Yugal">
@@ -31,11 +48,29 @@
   <header class="site-header">
     <nav class="site-nav">
       <a href="/" class="brand-title">yugal.one</a>
-      <div class="nav-links">
-        <a href="/collab" class="nav-link">Collab</a>
-        <a href="/collab-sans" class="nav-link">Collab Sans</a>
-        <a href="/collab-for-appsheet" class="nav-link">Collab for AppSheet</a>
-        <a href="/flows" class="nav-link">Flows</a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="/collab" class="nav-link">Collab</a>
+          <a href="/collab-sans" class="nav-link">Collab Sans</a>
+          <a href="/collab-for-appsheet" class="nav-link">Collab for AppSheet</a>
+          <a href="/flows" class="nav-link">Flows</a>
+        </div>
+        <div class="theme-toggle" role="radiogroup" aria-label="Color theme" data-theme="light" tabindex="0">
+          <span class="toggle-thumb" aria-hidden="true"></span>
+          <button type="button" role="radio" aria-checked="true" aria-label="Light theme" class="toggle-btn toggle-sun" data-theme-btn="light">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <g stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="8" r="3.2"></circle>
+                <path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.05 3.05l1.41 1.41M11.54 11.54l1.41 1.41M3.05 12.95l1.41-1.41M11.54 4.46l1.41-1.41"></path>
+              </g>
+            </svg>
+          </button>
+          <button type="button" role="radio" aria-checked="false" aria-label="Dark theme" class="toggle-btn toggle-moon" data-theme-btn="dark">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M13.5 9.5a5.5 5.5 0 1 1-7-7 4.5 4.5 0 0 0 7 7Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </button>
+        </div>
       </div>
     </nav>
   </header>
@@ -44,7 +79,14 @@
   <main class="page-wrap">
 
     <div class="page-header">
-      <h1 class="page-title">Yugal</h1>
+      <h1 class="page-title">
+        <span class="page-title-mark mark-yugal">
+          <svg class="mark-svg" viewBox="0 -960 960 960" aria-hidden="true">
+            <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480v53q0 56-39.34 94.5Q801.31-294 744-294q-36.08 0-68.04-17.5Q644-329 627-361q-26 34-65.08 50.5Q522.83-294 480-294q-77.61 0-132.3-54Q293-402 293-480.01q0-78.02 54.5-133Q402-668 480-668t132.5 54.99Q667-558.02 667-480v53q0 30.61 22.5 51.81Q712-354 743.5-354t54-21.19Q820-396.39 820-427v-53q0-142.38-99-241.19T480-820q-142 0-241 99t-99 241q0 142 98.81 241 98.82 99 241.19 99h184q12.75 0 21.38 8.68 8.62 8.67 8.62 21.5 0 12.82-8.62 21.32Q676.75-80 664-80H480Zm90-310.75q37-36.75 37-89.25 0-54-37.06-91t-90-37Q427-608 390-571t-37 91q0 52.5 37.06 89.25t90 36.75Q533-354 570-390.75Z"/>
+          </svg>
+        </span>
+        <span>Yugal</span>
+      </h1>
     </div>
 
     <p>
@@ -65,7 +107,11 @@
 
       <div class="work-entry">
         <div class="work-row">
-          <a href="/collab" class="work-title">Collab <span class="arrow">→</span></a>
+          <a href="/collab" class="work-title">
+            <span class="work-title-mark mark-collab"><img src="/collab/Logo/Collab-500px-fit.svg" alt="" class="mark-svg"></span>
+            <span class="work-title-text">Collab</span>
+            <span class="arrow">→</span>
+          </a>
           <a href="https://www.appsheet.com/newshortcut/bf93ddae-3058-4d7c-acee-fd0df4ad7178" target="_blank" rel="noopener" class="action-link">Explore <span class="arrow">↗</span></a>
         </div>
         <p class="work-desc">An enterprise operations platform unifying contacts, multi-tier BOMs, inventory tracking, manufacturing, and financial reporting under a single multi-tenant AppSheet architecture.</p>
@@ -73,7 +119,11 @@
 
       <div class="work-entry">
         <div class="work-row">
-          <a href="/collab-sans" class="work-title">Collab Sans <span class="arrow">→</span></a>
+          <a href="/collab-sans" class="work-title">
+            <span class="work-title-mark mark-aa" aria-hidden="true">Aa</span>
+            <span class="work-title-text">Collab Sans</span>
+            <span class="arrow">→</span>
+          </a>
           <a href="https://github.com/yugalone/collab-sans" target="_blank" rel="noopener" class="action-link">Checkout <span class="arrow">↗</span></a>
         </div>
         <p class="work-desc">A clean, warm neo-grotesque rounded typeface family derived algorithmically from Inter across 18 styles with tangent-continuous semicircular caps and preserved ink-traps under SIL OFL 1.1.</p>
@@ -81,7 +131,11 @@
 
       <div class="work-entry">
         <div class="work-row">
-          <a href="/collab-for-appsheet" class="work-title">Collab for AppSheet <span class="arrow">→</span></a>
+          <a href="/collab-for-appsheet" class="work-title">
+            <span class="work-title-mark mark-collab-for-appsheet"><img src="/collab-for-appsheet/Logo/Collab-for-AppSheet-500px-fit.svg" alt="" class="mark-svg"></span>
+            <span class="work-title-text">Collab for AppSheet</span>
+            <span class="arrow">→</span>
+          </a>
           <a href="https://chromewebstore.google.com/detail/pnladnoiagcckfbccpkfbpimjmmbiaok?utm_source=item-share-cb" target="_blank" rel="noopener" class="action-link">Add to Chrome <span class="arrow">↗</span></a>
         </div>
         <p class="work-desc">A lightweight Chrome extension delivering background auto-sync, Collab Sans typography toggle, and filtered table printing with 100% local client-side execution.</p>
@@ -89,7 +143,11 @@
 
       <div class="work-entry">
         <div class="work-row">
-          <a href="/flows" class="work-title">Flows <span class="arrow">→</span></a>
+          <a href="/flows" class="work-title">
+            <span class="work-title-mark mark-flows"><img src="/flows/Logo/Flows-500px-fit.svg" alt="" class="mark-svg"></span>
+            <span class="work-title-text">Flows</span>
+            <span class="arrow">→</span>
+          </a>
           <a href="https://script.google.com/macros/s/AKfycbzA2EVK4FtclLJkajW9_qcoGpoMxjBlxQrPSiwu91aNOKDHjhyS5kcSej6FjFoFcX6StQ/exec" target="_blank" rel="noopener" class="action-link">Now Free <span class="arrow">↗</span></a>
         </div>
         <p class="work-desc">A minimal document and label mail-merge studio for Google Sheets, Forms, and Drive CSVs with a live print canvas, data chips, and quota-free PDF export.</p>

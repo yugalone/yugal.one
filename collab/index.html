@@ -5,9 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Collab</title>
   <meta name="description" content="An enterprise operations platform unifying contacts, multi-tier BOMs, inventory tracking, manufacturing, and financial reporting under a single multi-tenant AppSheet architecture.">
+  <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://yugal.one/collab">
   <link rel="icon" type="image/svg+xml" href="/collab/Logo/Collab-500px-fit.svg">
   <link rel="stylesheet" href="/css/style.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t) {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+        if (t === 'dark') {
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute('content', '#0c0c0c');
+        }
+      } catch (e) {}
+    })();
+  </script>
 
   <!-- Open Graph -->
   <meta property="og:title" content="Collab">
@@ -31,11 +48,29 @@
   <header class="site-header">
     <nav class="site-nav">
       <a href="/" class="brand-title">yugal.one</a>
-      <div class="nav-links">
-        <a href="/collab" class="nav-link active">Collab</a>
-        <a href="/collab-sans" class="nav-link">Collab Sans</a>
-        <a href="/collab-for-appsheet" class="nav-link">Collab for AppSheet</a>
-        <a href="/flows" class="nav-link">Flows</a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="/collab" class="nav-link active">Collab</a>
+          <a href="/collab-sans" class="nav-link">Collab Sans</a>
+          <a href="/collab-for-appsheet" class="nav-link">Collab for AppSheet</a>
+          <a href="/flows" class="nav-link">Flows</a>
+        </div>
+        <div class="theme-toggle" role="radiogroup" aria-label="Color theme" data-theme="light" tabindex="0">
+          <span class="toggle-thumb" aria-hidden="true"></span>
+          <button type="button" role="radio" aria-checked="true" aria-label="Light theme" class="toggle-btn toggle-sun" data-theme-btn="light">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <g stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="8" r="3.2"></circle>
+                <path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.05 3.05l1.41 1.41M11.54 11.54l1.41 1.41M3.05 12.95l1.41-1.41M11.54 4.46l1.41-1.41"></path>
+              </g>
+            </svg>
+          </button>
+          <button type="button" role="radio" aria-checked="false" aria-label="Dark theme" class="toggle-btn toggle-moon" data-theme-btn="dark">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M13.5 9.5a5.5 5.5 0 1 1-7-7 4.5 4.5 0 0 0 7 7Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </button>
+        </div>
       </div>
     </nav>
   </header>
@@ -44,7 +79,10 @@
   <main class="page-wrap">
 
     <div class="page-header">
-      <h1 class="page-title">Collab</h1>
+      <h1 class="page-title">
+        <span class="page-title-mark mark-collab"><img src="/collab/Logo/Collab-500px-fit.svg" alt="" class="mark-svg"></span>
+        <span>Collab</span>
+      </h1>
     </div>
 
     <p>
