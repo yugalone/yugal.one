@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mark It Down</title>
+  <meta name="description" content="A lightweight markdown viewer extension with Collab Sans typography, collapsible sections, real-time document outline search, metadata inspection, and offline KaTeX math & Mermaid diagram rendering.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://yugal.one/mark-it-down">
+  <link rel="icon" type="image/svg+xml" href="/mark-it-down/Logo/Mark-It-Down-500px-fit.svg">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t) {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+        if (t === 'dark') {
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute('content', '#0c0c0c');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mark It Down">
+  <meta property="og:description" content="A lightweight markdown viewer extension with Collab Sans typography, collapsible sections, live outline search, metadata inspection, and offline KaTeX & Mermaid rendering.">
+  <meta property="og:url" content="https://yugal.one/mark-it-down">
+  <meta property="og:type" content="website">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZXEJWQXCP9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZXEJWQXCP9');
+  </script>
+</head>
+<body>
+
+  <!-- Minimalist Header -->
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="/" class="brand-title">yugal.one</a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="/collab" class="nav-link">Collab</a>
+          <a href="/collab-sans" class="nav-link">Collab Sans</a>
+          <a href="/collab-for-appsheet" class="nav-link">Collab for AppSheet</a>
+          <a href="/flows" class="nav-link">Flows</a>
+          <a href="/mark-it-down" class="nav-link active">Mark It Down</a>
+        </div>
+        <div class="theme-toggle" role="radiogroup" aria-label="Color theme" data-theme="light" tabindex="0">
+          <span class="toggle-thumb" aria-hidden="true"></span>
+          <button type="button" role="radio" aria-checked="true" aria-label="Light theme" class="toggle-btn toggle-sun" data-theme-btn="light">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <g stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="8" r="3.2"></circle>
+                <path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.05 3.05l1.41 1.41M11.54 11.54l1.41 1.41M3.05 12.95l1.41-1.41M11.54 4.46l1.41-1.41"></path>
+              </g>
+            </svg>
+          </button>
+          <button type="button" role="radio" aria-checked="false" aria-label="Dark theme" class="toggle-btn toggle-moon" data-theme-btn="dark">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M13.5 9.5a5.5 5.5 0 1 1-7-7 4.5 4.5 0 0 0 7 7Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Wrap -->
+  <main class="page-wrap">
+
+    <div class="page-header">
+      <h1 class="page-title">
+        <span class="page-title-mark mark-mark-it-down"><img src="/mark-it-down/Logo/Mark-It-Down-500px-fit.svg" alt="" class="mark-svg"></span>
+        <span>Mark It Down</span>
+      </h1>
+    </div>
+
+    <p>
+      A lightweight Chrome extension designed to elevate local and web markdown reading into a distraction-free, beautifully typeset reading experience. Powered by native Collab Sans typography, collapsible sections, live outline search, real-time metadata inspection, and 100% offline KaTeX math &amp; Mermaid diagram rendering.
+    </p>
+
+    <div class="action-links">
+      <a href="https://github.com/yugalone/mark-it-down" target="_blank" rel="noopener" class="action-link">Checkout <span class="arrow">↗</span></a>
+    </div>
+
+    <!-- Capabilities -->
+    <div class="section-label">Core Capabilities</div>
+    <div class="spec-list">
+
+      <div class="spec-item">
+        <div class="spec-name">Collab Sans Typography</div>
+        <div class="spec-desc">Bundled local Collab Sans across 18 styles, offering warm, rounded optical geometry derived from Inter with a 2px interval stepper.</div>
+      </div>
+
+      <div class="spec-item">
+        <div class="spec-name">Collapsible Sections</div>
+        <div class="spec-desc">Interactive chevrons for headings (<code class="inline-code">H1</code>–<code class="inline-code">H6</code>) and nested lists to keep complex, long-form technical documentation structured and navigable.</div>
+      </div>
+
+      <div class="spec-item">
+        <div class="spec-name">Document Outline &amp; Search</div>
+        <div class="spec-desc">Live sidebar table of contents with real-time substring filtering, active scroll section highlighting, keyboard shortcut toggle (<code class="inline-code">⌃⇧B</code>), and drag-to-resize panel width.</div>
+      </div>
+
+      <div class="spec-item">
+        <div class="spec-name">Document Metadata</div>
+        <div class="spec-desc">Instant inspection drawer showing file name, file size, word count, reading time estimates, heading counts, and total lines.</div>
+      </div>
+
+      <div class="spec-item">
+        <div class="spec-name">Mathematical Equations</div>
+        <div class="spec-desc">Bundled offline KaTeX typesetting for inline <code class="inline-code">$math$</code> and display <code class="inline-code">$$...$$</code> blocks with zero external network requests.</div>
+      </div>
+
+      <div class="spec-item">
+        <div class="spec-name">Diagrams &amp; Flowcharts</div>
+        <div class="spec-desc">Native client-side rendering for flowcharts, sequence diagrams, and state machines declared in <code class="inline-code">```mermaid</code> blocks using Collab typography.</div>
+      </div>
+
+      <div class="spec-item">
+        <div class="spec-name">Syntax Highlighting</div>
+        <div class="spec-desc">Minimalist code theme with syntax coloring for JavaScript, TypeScript, Python, Bash, JSON, YAML, SQL, CSS, and copyable code blocks with language badges.</div>
+      </div>
+
+      <div class="spec-item">
+        <div class="spec-name">100% Local &amp; Secure</div>
+        <div class="spec-desc">Zero tracking, zero telemetry, and zero remote scripts. All markdown parsing, math typesetting, and diagram rendering run strictly within the client-side browser sandbox.</div>
+      </div>
+
+    </div>
+
+    <!-- Governance -->
+    <div class="section-label">Source &amp; Governance</div>
+    <div class="action-links">
+      <a href="https://github.com/yugalone/mark-it-down" target="_blank" rel="noopener" class="action-link">GitHub Repository <span class="arrow">↗</span></a>
+    </div>
+
+  </main>
+
+  <!-- Universal Common Footer -->
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGfVYYC7NUIipL3ScGCyAtTzJAMvPHo81XvtdLDvgKhzW56Q/viewform" target="_blank" rel="noopener" class="footer-link">Drop a message <span class="arrow">↗</span></a>
+      <a href="mailto:contact@yugal.one" target="_blank" rel="noopener" class="footer-link">Email <span class="arrow">↗</span></a>
+      <a href="https://pages.razorpay.com/yugalone" target="_blank" rel="noopener" class="footer-link">Support my work <span class="arrow">↗</span></a>
+    </div>
+  </footer>
+
+  <script src="/js/lenis.min.js"></script>
+  <script src="/js/site.js"></script>
+</body>
+</html>

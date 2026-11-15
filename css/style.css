@@ -950,7 +950,8 @@ p a:hover {
 /* Dark mode mark invert */
 [data-theme="dark"] .mark-collab .mark-svg,
 [data-theme="dark"] .mark-collab-for-appsheet .mark-svg,
-[data-theme="dark"] .mark-flows .mark-svg {
+[data-theme="dark"] .mark-flows .mark-svg,
+[data-theme="dark"] .mark-mark-it-down .mark-svg {
   filter: invert(1);
 }
 
