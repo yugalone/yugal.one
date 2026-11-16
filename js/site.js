@@ -339,6 +339,247 @@
     applyTheme(currentTheme, false);
   }
 
+  // -------------------------------------------------------------------------
+  // 6. Editorial Contact Form & Channel Interactions
+  // -------------------------------------------------------------------------
+  function generateAppSheetId() {
+    const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let result = '';
+    if (window.crypto && window.crypto.getRandomValues) {
+      const bytes = new Uint8Array(8);
+      window.crypto.getRandomValues(bytes);
+      for (let i = 0; i < 8; i++) {
+        result += chars[bytes[i] % chars.length];
+      }
+    } else {
+      for (let i = 0; i < 8; i++) {
+        result += chars[Math.floor(Math.random() * chars.length)];
+      }
+    }
+    return result;
+  }
+
+  function formatTimestamp(d = new Date()) {
+    const pad = (n) => String(n).padStart(2, '0');
+    return `${pad(d.getMonth() + 1)}/${pad(d.getDate())}/${d.getFullYear()} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+  }
+
+  function setupContactForm() {
+    // Quick copy for channel pill (e.g. email)
+    document.querySelectorAll('.channel-copy[data-copy]').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const text = btn.getAttribute('data-copy');
+        if (!text) return;
+        const tag = btn.querySelector('.copy-tag');
+        const origTag = tag ? tag.textContent : '';
+
+        try {
+          await navigator.clipboard.writeText(text);
+        } catch (e) {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+        }
+
+        btn.classList.add('copied');
+        if (tag) tag.textContent = 'Copied!';
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          if (tag) tag.textContent = origTag;
+        }, 1800);
+      });
+    });
+
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    // Multi-select Products toggle
+    const productPills = form.querySelectorAll('.product-pills .topic-pill');
+    productPills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        pill.classList.toggle('is-active');
+        pill.setAttribute('aria-pressed', pill.classList.contains('is-active') ? 'true' : 'false');
+      });
+    });
+
+    // Multi-select Tags toggle
+    const tagPills = form.querySelectorAll('.tag-pills .topic-pill');
+    tagPills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        pill.classList.toggle('is-active');
+        pill.setAttribute('aria-pressed', pill.classList.contains('is-active') ? 'true' : 'false');
+      });
+    });
+
+    const getSelectedProducts = () => {
+      const active = [...form.querySelectorAll('.product-pills .topic-pill.is-active')];
+      return active.map((p) => p.dataset.product || p.textContent.trim());
+    };
+
+    const getSelectedTags = () => {
+      const active = [...form.querySelectorAll('.tag-pills .topic-pill.is-active')];
+      return active.map((p) => p.dataset.tag || p.textContent.trim());
+    };
+
+    const statusEl = document.getElementById('form-status');
+    const submitBtn = document.getElementById('contact-submit');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Honeypot spam check
+      const hp = form.elements['company_website'];
+      if (hp && hp.value.trim() !== '') {
+        form.reset();
+        if (statusEl) {
+          statusEl.className = 'form-status status-success';
+          statusEl.textContent = "Thank you, it's with us. We reply promptly.";
+        }
+        return;
+      }
+
+      const name = (form.elements['name']?.value || '').trim();
+      const email = (form.elements['email']?.value || '').trim();
+      const title = (form.elements['title']?.value || '').trim();
+      const description = (form.elements['description']?.value || '').trim();
+
+      const showStatus = (msg, type = '') => {
+        if (!statusEl) return;
+        statusEl.className = `form-status ${type}`;
+        statusEl.innerHTML = msg;
+      };
+
+      if (!name) {
+        showStatus('Please tell us your name.', 'status-error');
+        form.elements['name']?.focus();
+        return;
+      }
+
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+        showStatus('Please enter a valid email address.', 'status-error');
+        form.elements['email']?.focus();
+        return;
+      }
+
+      if (!title) {
+        showStatus('Please give your message a brief title.', 'status-error');
+        form.elements['title']?.focus();
+        return;
+      }
+
+      submitBtn.disabled = true;
+      const originalBtnHTML = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<span>Sending…</span>';
+      showStatus('Sending your message…');
+
+      // Generate 8-character uppercase AppSheet UNIQUEID
+      const referenceId = generateAppSheetId();
+
+      // Configurable endpoint (Google Apps Script Web App, Cloudflare Worker, or custom API)
+      const endpoint = window.CONTACT_ENDPOINT || 'https://script.google.com/macros/s/AKfycbyhT4D5Hukz1Wa5kOtbrwBN8ec1sl43kUz9EIz1mU4PLiNyoB0_zPAUeir8ebyrKg62_g/exec';
+
+      const selectedProducts = getSelectedProducts();
+      const selectedTags = getSelectedTags();
+
+      let success = false;
+
+      try {
+        // Submit directly to Google Apps Script Web App endpoint
+        await fetch(endpoint, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({
+            id: referenceId,
+            email,
+            name,
+            products: selectedProducts,
+            tags: selectedTags,
+            title,
+            description,
+            submittedAt: formatTimestamp()
+          })
+        });
+        success = true;
+      } catch (err) {
+        success = false;
+      }
+
+      if (success) {
+        form.reset();
+        productPills.forEach((p) => {
+          p.classList.remove('is-active');
+          p.setAttribute('aria-pressed', 'false');
+        });
+
+        tagPills.forEach((p) => {
+          p.classList.remove('is-active');
+          p.setAttribute('aria-pressed', 'false');
+        });
+
+        if (statusEl) {
+          statusEl.className = 'form-status status-success';
+          statusEl.innerHTML = `
+            <div class="form-feedback">
+              <p class="form-feedback-lead">Thank you, your message has been sent.</p>
+              <p>We reply promptly.</p>
+              <p class="form-feedback-ref">
+                <span>Reference ID:</span>
+                <span class="ref-id">${referenceId}</span>
+                <button type="button" class="copy-icon-btn" id="copy-ref-btn" aria-label="Copy reference ID" title="Copy reference ID">
+                  <svg class="copy-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <svg class="check-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </button>
+              </p>
+            </div>
+          `;
+
+          const copyBtn = document.getElementById('copy-ref-btn');
+          if (copyBtn) {
+            copyBtn.addEventListener('click', async () => {
+              try {
+                await navigator.clipboard.writeText(referenceId);
+              } catch (err) {
+                const ta = document.createElement('textarea');
+                ta.value = referenceId;
+                ta.style.position = 'fixed';
+                ta.style.left = '-9999px';
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+              }
+              copyBtn.classList.add('copied');
+              setTimeout(() => {
+                copyBtn.classList.remove('copied');
+              }, 1800);
+            });
+          }
+        }
+      } else {
+        const subjectLead = selectedProducts.length > 0 ? ` ${selectedProducts.join(', ')} —` : '';
+        const mailtoFallback = `mailto:contact@yugal.one?subject=${encodeURIComponent(`[${referenceId}]${subjectLead} ${title}`)}&body=${encodeURIComponent(`Reference ID: ${referenceId}\nFrom: ${name} (${email})\nProducts: ${selectedProducts.join(', ')}\nTags: ${selectedTags.join(', ')}\n\n${description}`)}`;
+        showStatus(
+          `Unable to send automatically. <a href="${mailtoFallback}" class="inline-link" style="text-decoration:underline;">Click here to send directly via email (Ref: ${referenceId}) &rarr;</a>`,
+          'status-error'
+        );
+      }
+
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnHTML;
+    });
+  }
+
   // Initialize all on DOM ready (supporting dynamic or cached loads)
   function init() {
     setupTheme();
@@ -347,6 +588,7 @@
     setupTactileSound();
     setupPodcastPlayer();
     setupCopyButtons();
+    setupContactForm();
   }
 
   if (document.readyState === 'loading') {
