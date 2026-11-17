@@ -444,7 +444,8 @@
       }
 
       const name = (form.elements['name']?.value || '').trim();
-      const email = (form.elements['email']?.value || '').trim();
+      const emailInput = form.elements['email-id'] || form.elements['email'];
+      const email = (emailInput?.value || '').trim();
       const title = (form.elements['title']?.value || '').trim();
       const description = (form.elements['description']?.value || '').trim();
 
@@ -462,7 +463,7 @@
 
       if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
         showStatus('Please enter a valid email address.', 'status-error');
-        form.elements['email']?.focus();
+        emailInput?.focus();
         return;
       }
 
@@ -497,6 +498,8 @@
           body: JSON.stringify({
             id: referenceId,
             email,
+            emailId: email,
+            'email-id': email,
             name,
             products: selectedProducts,
             tags: selectedTags,
