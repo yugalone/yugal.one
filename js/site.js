@@ -416,6 +416,81 @@
       });
     });
 
+    // Prefill form from URL query parameters (e.g. ?product=Collab&tags=Product+inquiry,Licensing+%26+billing&title=...&description=...)
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const clean = (s) => (s || '').toLowerCase().replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+
+      // Products
+      const requestedProducts = [
+        ...params.getAll('product'),
+        ...params.getAll('products')
+      ].flatMap(p => p.split(',')).map(clean).filter(Boolean);
+
+      if (requestedProducts.length > 0) {
+        productPills.forEach((pill) => {
+          const val = clean(pill.dataset.product || pill.textContent);
+          if (requestedProducts.includes(val)) {
+            pill.classList.add('is-active');
+            pill.setAttribute('aria-pressed', 'true');
+          }
+        });
+      }
+
+      // Tags
+      const requestedTags = [
+        ...params.getAll('tag'),
+        ...params.getAll('tags')
+      ].flatMap(t => t.split(',')).map(clean).filter(Boolean);
+
+      if (requestedTags.length > 0) {
+        tagPills.forEach((pill) => {
+          const val = clean(pill.dataset.tag || pill.textContent);
+          const matches = requestedTags.some(t => {
+            if (t === val) return true;
+            if (t.replace(/\b(&|and)\b/g, '').trim() === val.replace(/\b(&|and)\b/g, '').trim()) return true;
+            if (t.replace('licesing', 'licensing') === val) return true;
+            return false;
+          });
+          if (matches) {
+            pill.classList.add('is-active');
+            pill.setAttribute('aria-pressed', 'true');
+          }
+        });
+      }
+
+      // Title
+      const titleParam = params.get('title');
+      if (titleParam && form.elements['title']) {
+        form.elements['title'].value = titleParam;
+        form.elements['title'].setAttribute('value', titleParam);
+      }
+
+      // Description
+      const descParam = params.get('description') || params.get('desc');
+      if (descParam && form.elements['description']) {
+        form.elements['description'].value = descParam;
+        form.elements['description'].textContent = descParam;
+      }
+
+      // Name & Email
+      const nameParam = params.get('name');
+      if (nameParam && form.elements['name']) {
+        form.elements['name'].value = nameParam;
+        form.elements['name'].setAttribute('value', nameParam);
+      }
+      const emailParam = params.get('email') || params.get('email-id');
+      if (emailParam) {
+        const input = form.elements['email-id'] || form.elements['email'];
+        if (input) {
+          input.value = emailParam;
+          input.setAttribute('value', emailParam);
+        }
+      }
+    } catch (e) {
+      console.warn('Could not parse URL query parameters for contact form', e);
+    }
+
     const getSelectedProducts = () => {
       const active = [...form.querySelectorAll('.product-pills .topic-pill.is-active')];
       return active.map((p) => p.dataset.product || p.textContent.trim());
