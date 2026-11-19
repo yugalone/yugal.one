@@ -111,16 +111,16 @@
         <input type="text" id="contact-name" name="name" class="form-input" placeholder="Your name" autocomplete="name" required>
       </div>
 
-      <!-- Products (Multi-select) -->
+      <!-- Product (Single-select) -->
       <div class="form-row">
-        <span class="form-label">Products</span>
-        <div class="topic-pills product-pills" role="group" aria-label="Products">
-          <button type="button" aria-pressed="false" class="topic-pill" data-product="Collab">Collab</button>
-          <button type="button" aria-pressed="false" class="topic-pill" data-product="Collab Sans">Collab Sans</button>
-          <button type="button" aria-pressed="false" class="topic-pill" data-product="Collab for AppSheet">Collab for AppSheet</button>
-          <button type="button" aria-pressed="false" class="topic-pill" data-product="Flows">Flows</button>
-          <button type="button" aria-pressed="false" class="topic-pill" data-product="Mark It Down">Mark It Down</button>
-          <button type="button" aria-pressed="false" class="topic-pill" data-product="General">General</button>
+        <span class="form-label">Product</span>
+        <div class="topic-pills product-pills" role="radiogroup" aria-label="Product">
+          <button type="button" role="radio" aria-checked="false" class="topic-pill" data-product="Collab">Collab</button>
+          <button type="button" role="radio" aria-checked="false" class="topic-pill" data-product="Collab Sans">Collab Sans</button>
+          <button type="button" role="radio" aria-checked="false" class="topic-pill" data-product="Collab for AppSheet">Collab for AppSheet</button>
+          <button type="button" role="radio" aria-checked="false" class="topic-pill" data-product="Flows">Flows</button>
+          <button type="button" role="radio" aria-checked="false" class="topic-pill" data-product="Mark It Down">Mark It Down</button>
+          <button type="button" role="radio" aria-checked="false" class="topic-pill" data-product="General">General</button>
         </div>
       </div>
 

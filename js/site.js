@@ -398,12 +398,21 @@
     const form = document.getElementById('contact-form');
     if (!form) return;
 
-    // Multi-select Products toggle
+    // Single-select Product toggle
     const productPills = form.querySelectorAll('.product-pills .topic-pill');
     productPills.forEach((pill) => {
       pill.addEventListener('click', () => {
-        pill.classList.toggle('is-active');
-        pill.setAttribute('aria-pressed', pill.classList.contains('is-active') ? 'true' : 'false');
+        const wasActive = pill.classList.contains('is-active');
+        productPills.forEach((p) => {
+          p.classList.remove('is-active');
+          p.setAttribute('aria-checked', 'false');
+          p.setAttribute('aria-pressed', 'false');
+        });
+        if (!wasActive) {
+          pill.classList.add('is-active');
+          pill.setAttribute('aria-checked', 'true');
+          pill.setAttribute('aria-pressed', 'true');
+        }
       });
     });
 
@@ -421,20 +430,22 @@
       const params = new URLSearchParams(window.location.search);
       const clean = (s) => (s || '').toLowerCase().replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
 
-      // Products
+      // Product (Single-select: match first found)
       const requestedProducts = [
         ...params.getAll('product'),
         ...params.getAll('products')
       ].flatMap(p => p.split(',')).map(clean).filter(Boolean);
 
       if (requestedProducts.length > 0) {
-        productPills.forEach((pill) => {
+        for (const pill of productPills) {
           const val = clean(pill.dataset.product || pill.textContent);
           if (requestedProducts.includes(val)) {
             pill.classList.add('is-active');
+            pill.setAttribute('aria-checked', 'true');
             pill.setAttribute('aria-pressed', 'true');
+            break;
           }
-        });
+        }
       }
 
       // Tags
@@ -491,9 +502,9 @@
       console.warn('Could not parse URL query parameters for contact form', e);
     }
 
-    const getSelectedProducts = () => {
-      const active = [...form.querySelectorAll('.product-pills .topic-pill.is-active')];
-      return active.map((p) => p.dataset.product || p.textContent.trim());
+    const getSelectedProduct = () => {
+      const active = form.querySelector('.product-pills .topic-pill.is-active');
+      return active ? (active.dataset.product || active.textContent.trim()) : '';
     };
 
     const getSelectedTags = () => {
@@ -559,7 +570,7 @@
       // Configurable endpoint (Google Apps Script Web App, Cloudflare Worker, or custom API)
       const endpoint = window.CONTACT_ENDPOINT || 'https://script.google.com/macros/s/AKfycbyhT4D5Hukz1Wa5kOtbrwBN8ec1sl43kUz9EIz1mU4PLiNyoB0_zPAUeir8ebyrKg62_g/exec';
 
-      const selectedProducts = getSelectedProducts();
+      const selectedProduct = getSelectedProduct();
       const selectedTags = getSelectedTags();
 
       let success = false;
@@ -576,7 +587,7 @@
             emailId: email,
             'email-id': email,
             name,
-            products: selectedProducts,
+            product: selectedProduct,
             tags: selectedTags,
             title,
             description,
@@ -592,6 +603,7 @@
         form.reset();
         productPills.forEach((p) => {
           p.classList.remove('is-active');
+          p.setAttribute('aria-checked', 'false');
           p.setAttribute('aria-pressed', 'false');
         });
 
@@ -645,8 +657,8 @@
           }
         }
       } else {
-        const subjectLead = selectedProducts.length > 0 ? ` ${selectedProducts.join(', ')} —` : '';
-        const mailtoFallback = `mailto:contact@yugal.one?subject=${encodeURIComponent(`[${referenceId}]${subjectLead} ${title}`)}&body=${encodeURIComponent(`Reference ID: ${referenceId}\nFrom: ${name} (${email})\nProducts: ${selectedProducts.join(', ')}\nTags: ${selectedTags.join(', ')}\n\n${description}`)}`;
+        const subjectLead = selectedProduct ? ` ${selectedProduct} —` : '';
+        const mailtoFallback = `mailto:contact@yugal.one?subject=${encodeURIComponent(`[${referenceId}]${subjectLead} ${title}`)}&body=${encodeURIComponent(`Reference ID: ${referenceId}\nFrom: ${name} (${email})\nProduct: ${selectedProduct || 'None'}\nTags: ${selectedTags.join(', ')}\n\n${description}`)}`;
         showStatus(
           `Unable to send automatically. <a href="${mailtoFallback}" class="inline-link" style="text-decoration:underline;">Click here to send directly via email (Ref: ${referenceId}) &rarr;</a>`,
           'status-error'
