@@ -392,7 +392,7 @@
 
     <!-- Web Integration -->
     <div class="section-label">Web Integration</div>
-    <p>Include Collab Sans directly in your CSS:</p>
+    <p>Include Collab Sans directly in your web page or application:</p>
     <div class="code-wrap">
       <button type="button" class="copy-btn" onclick="copySnippet(this)" aria-label="Copy code snippet" title="Copy snippet">
         <svg class="copy-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -403,15 +403,14 @@
           <polyline points="20 6 9 17 4 12"></polyline>
         </svg>
       </button>
-      <pre class="code-box" id="integrationSnippet"><code>@font-face {
-  font-family: 'Collab Sans';
-  src: url('/fonts/woff2/CollabSans-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-display: swap;
-}
+      <pre class="code-box" id="integrationSnippet"><code>&lt;!-- HTML in your document's head --&gt;
+&lt;link rel="preconnect" href="https://yugal.one"&gt;
+&lt;link rel="stylesheet" href="https://yugal.one/collab-sans/collab-sans.css"&gt;
 
-body {
-  font-family: 'Collab Sans', -apple-system, sans-serif;
+/* CSS */
+:root {
+  font-family: 'Collab Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1;
 }</code></pre>
     </div>
 
@@ -463,7 +462,7 @@ body {
     }
 
     function copySnippet(btn) {
-      const text = `@font-face {\n  font-family: 'Collab Sans';\n  src: url('/fonts/woff2/CollabSans-Regular.woff2') format('woff2');\n  font-weight: 400;\n  font-display: swap;\n}\n\nbody {\n  font-family: 'Collab Sans', -apple-system, sans-serif;\n}`;
+      const text = `<!-- HTML in your document's head -->\n<link rel="preconnect" href="https://yugal.one">\n<link rel="stylesheet" href="https://yugal.one/collab-sans/collab-sans.css">\n\n/* CSS */\n:root {\n  font-family: 'Collab Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;\n  font-feature-settings: 'liga' 1, 'calt' 1;\n}`;
 
       function triggerFeedback() {
         if (!btn) return;
