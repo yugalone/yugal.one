@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flows</title>
-  <meta name="description" content="A minimal document and label mail-merge studio for Google Sheets, Google Forms, and Drive CSVs. Live page canvas, data chips, and print-ready PDF export with zero Google Docs quotas.">
+  <meta name="description" content="A minimal document and label mail-merge studio for Google Sheets, Google Forms, and Drive CSVs. Connect data via Google Drive Picker, design layouts on a live page canvas with smart data chips, and export print-ready PDFs or Markdown with zero Google Docs quotas.">
   <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://yugal.one/flows">
   <link rel="icon" type="image/svg+xml" href="/flows/Logo/Flows-500px-fit.svg">
@@ -28,7 +28,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Flows">
-  <meta property="og:description" content="Connect Google Sheets, design on a live page canvas, and export print-ready PDFs with zero Google Docs quotas.">
+  <meta property="og:description" content="A minimal document and label mail-merge studio for Google Sheets, Google Forms, and Drive CSVs. Connect data via Google Drive Picker, design layouts on a live page canvas with smart data chips, and export print-ready PDFs or Markdown with zero Google Docs quotas.">
   <meta property="og:url" content="https://yugal.one/flows">
   <meta property="og:type" content="website">
 
@@ -87,7 +87,7 @@
     </div>
 
     <p>
-      A minimal document and label mail-merge studio for Google Sheets, Google Forms, and Drive CSVs. Connect a data source, design your layout on a live page canvas, and export print-ready PDFs or Markdown files in seconds—with zero Google Docs quotas.
+      A minimal document and label mail-merge studio for Google Sheets, Google Forms, and Drive CSVs. Connect data via Google Drive Picker, design layouts on a live page canvas with smart data chips, and export print-ready PDFs or Markdown with zero Google Docs quotas.
     </p>
 
     <div class="action-links">
@@ -99,63 +99,38 @@
     <div class="spec-list">
 
       <div class="spec-item">
-        <div class="spec-name">Multi-source Sync</div>
-        <div class="spec-desc">Load Google Sheets tabs, Google Forms responses, or Drive CSV files with automatic RFC-4180 delimiter detection while preserving exact number, date, and currency formatting.</div>
+        <div class="spec-name">Drive Sync &amp; Data Sources</div>
+        <div class="spec-desc">Connect Google Sheets, Google Forms, or Drive CSVs with native Google Drive Picker integration, multi-column search, row filtering, and automatic cell format preservation.</div>
       </div>
 
       <div class="spec-item">
-        <div class="spec-name">Record Selection</div>
-        <div class="spec-desc">Visual row selector with multi-column live search, select all / clear controls, and row checkboxes to merge specific records or process entire datasets in batch.</div>
+        <div class="spec-name">Smart Chips &amp; Commands</div>
+        <div class="spec-desc">Type <code class="inline-code">/</code> to insert merge fields, <code class="inline-code">_</code> for system tokens, <code class="inline-code">//</code> for inline images, or <code class="inline-code">|</code> for tables. Configure chips as Text, Dynamic Image, Link, QR Code, or Barcode with fallback values.</div>
       </div>
 
       <div class="spec-item">
-        <div class="spec-name">Trigger Commands</div>
-        <div class="spec-desc">Type <code class="inline-code">/</code> to insert merge fields, <code class="inline-code">_</code> for system tokens (dates, record counters, UUIDs), <code class="inline-code">//</code> to paste inline images, or <code class="inline-code">|</code> to insert custom tables.</div>
+        <div class="spec-name">Live Scaled Canvas</div>
+        <div class="spec-desc">Visual layout editor with precision margin guides, inner borders, zoom controls, and presets for A4, Letter, Shipping 4&times;6&Prime;, Address Labels, Badges, or custom millimeter dimensions.</div>
       </div>
 
       <div class="spec-item">
-        <div class="spec-name">Smart Data Chips</div>
-        <div class="spec-desc">Convert any field into Text, Dynamic Image, Clickable Link, 2D QR Code, or Scannable Code 39 Barcode with custom fallback values for missing records.</div>
+        <div class="spec-name">Real-Time Record Stepper</div>
+        <div class="spec-desc">Step through records record-by-record directly on canvas to inspect live data bindings and verify edge-case text wrapping before generating output.</div>
       </div>
 
       <div class="spec-item">
-        <div class="spec-name">Interactive Tables</div>
-        <div class="spec-desc">Insert custom row &times; column tables with visual grid selection and inline action controls to add, remove, and resize columns without disrupting canvas flow.</div>
+        <div class="spec-name">1:1 PDF &amp; Quota-Free Export</div>
+        <div class="spec-desc">High-performance rendering engine with embedded TTF font binaries for exact letter-spacing parity. Bypasses Google Docs API quotas to export single combined files or zipped individual PDFs and Markdown.</div>
       </div>
 
       <div class="spec-item">
-        <div class="spec-name">Live Page Canvas</div>
-        <div class="spec-desc">Design on a precision-scaled print canvas with visual margin guides, optional inner frame borders, zoom controls (zoom in, zoom out, fit to screen), and full typography styling.</div>
+        <div class="spec-name">Drive Save &amp; Dynamic Naming</div>
+        <div class="spec-desc">Save generated files directly to <code class="inline-code">Flows/Files</code> in Google Drive, send straight to physical print, and dynamically format file names using interactive merge field chips (e.g. <code class="inline-code">{{ORDER_ID}}-{{_date}}</code>).</div>
       </div>
 
       <div class="spec-item">
-        <div class="spec-name">Paper &amp; Label Presets</div>
-        <div class="spec-desc">Choose from A4, Letter, A5, A6, Shipping 4&times;6&Prime;, Address Label 4&times;2&Prime;, Product Label 3&times;2&Prime;, Badge 3&times;4&Prime;, or define custom millimeter dimensions in portrait or landscape.</div>
-      </div>
-
-      <div class="spec-item">
-        <div class="spec-name">Real-Time Stepper</div>
-        <div class="spec-desc">Step through records record-by-record directly on canvas to inspect live data bindings and verify edge-case text wrapping before generating files.</div>
-      </div>
-
-      <div class="spec-item">
-        <div class="spec-name">Quota-Free Export</div>
-        <div class="spec-desc">Direct rendering engine that bypasses Google Docs API quotas entirely. Download a single combined file or a .zip of individual PDF or Markdown documents.</div>
-      </div>
-
-      <div class="spec-item">
-        <div class="spec-name">Direct Print &amp; Drive Save</div>
-        <div class="spec-desc">Send layouts straight to your physical printer (<code class="inline-code">window.print</code>) or save generated files directly to the <code class="inline-code">Flows/Files</code> folder in your personal Google Drive.</div>
-      </div>
-
-      <div class="spec-item">
-        <div class="spec-name">Dynamic Naming</div>
-        <div class="spec-desc">Automatically format output file names using any combination of merge fields and system tokens (e.g. <code class="inline-code">{{ORDER_ID}}-Invoice-{{_date}}</code>).</div>
-      </div>
-
-      <div class="spec-item">
-        <div class="spec-name">Portable Projects</div>
-        <div class="spec-desc">Auto-save projects directly to <code class="inline-code">Flows/Projects</code> in Google Drive, or export and import lightweight, portable <code class="inline-code">.json</code> project definitions for complete offline backup.</div>
+        <div class="spec-name">Drive &amp; Local Projects</div>
+        <div class="spec-desc">Auto-saves projects directly to <code class="inline-code">Flows/Projects</code> in Google Drive, with one-click export and import of portable <code class="inline-code">.json</code> project definitions for complete offline backup.</div>
       </div>
 
     </div>

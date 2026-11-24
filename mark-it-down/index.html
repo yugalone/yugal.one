@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mark It Down</title>
-  <meta name="description" content="A lightweight markdown viewer extension with Collab Sans typography, collapsible sections, real-time document outline search, metadata inspection, and offline KaTeX math & Mermaid diagram rendering.">
+  <meta name="description" content="A lightweight Chrome extension designed to elevate local and web markdown reading into a distraction-free, beautifully typeset reading experience. Powered by Collab Sans and Inter typography, readable and pageless layouts, markdown and preview toggling, live outline search, and offline KaTeX math &amp; Mermaid diagram rendering.">
   <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://yugal.one/mark-it-down">
   <link rel="icon" type="image/svg+xml" href="/mark-it-down/Logo/Mark-It-Down-500px-fit.svg">
@@ -28,7 +28,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Mark It Down">
-  <meta property="og:description" content="A lightweight markdown viewer extension with Collab Sans typography, collapsible sections, live outline search, metadata inspection, and offline KaTeX & Mermaid rendering.">
+  <meta property="og:description" content="A lightweight Chrome extension designed to elevate local and web markdown reading into a distraction-free, beautifully typeset reading experience. Powered by Collab Sans and Inter typography, readable and pageless layouts, markdown and preview toggling, live outline search, and offline KaTeX math &amp; Mermaid diagram rendering.">
   <meta property="og:url" content="https://yugal.one/mark-it-down">
   <meta property="og:type" content="website">
 
@@ -87,7 +87,7 @@
     </div>
 
     <p>
-      A lightweight Chrome extension designed to elevate local and web markdown reading into a distraction-free, beautifully typeset reading experience. Powered by native Collab Sans typography, collapsible sections, live outline search, real-time metadata inspection, and 100% offline KaTeX math &amp; Mermaid diagram rendering.
+      A lightweight Chrome extension designed to elevate local and web markdown reading into a distraction-free, beautifully typeset reading experience. Powered by Collab Sans and Inter typography, readable and pageless layouts, markdown and preview toggling, live outline search, and offline KaTeX math &amp; Mermaid diagram rendering.
     </p>
 
     <div class="action-links">
@@ -99,18 +99,18 @@
     <div class="spec-list">
 
       <div class="spec-item">
-        <div class="spec-name">Collab Sans Typography</div>
-        <div class="spec-desc">Bundled local Collab Sans across 18 styles, offering warm, rounded optical geometry derived from Inter with a 2px interval stepper.</div>
+        <div class="spec-name">Collab Sans &amp; Inter</div>
+        <div class="spec-desc">Bundled local Collab Sans across 18 styles and Inter variable font, offering warm optical geometry and a 2px interval stepper (<code class="inline-code">12px</code>&ndash;<code class="inline-code">20px</code>).</div>
       </div>
 
       <div class="spec-item">
-        <div class="spec-name">Collapsible Sections</div>
-        <div class="spec-desc">Interactive chevrons for headings (<code class="inline-code">H1</code>–<code class="inline-code">H6</code>) and nested lists to keep complex, long-form technical documentation structured and navigable.</div>
+        <div class="spec-name">Readable &amp; Pageless Modes</div>
+        <div class="spec-desc">Direct toolbar action and keyboard shortcut (<code class="inline-code">⌃⇧D</code>) to toggle between a focused 700px reading column and an expansive fluid canvas for dense tables and sprawling diagrams.</div>
       </div>
 
       <div class="spec-item">
-        <div class="spec-name">Document Outline &amp; Search</div>
-        <div class="spec-desc">Live sidebar table of contents with real-time substring filtering, active scroll section highlighting, keyboard shortcut toggle (<code class="inline-code">⌃⇧Z</code>), and drag-to-resize panel width.</div>
+        <div class="spec-name">Markdown &amp; Preview Toggle</div>
+        <div class="spec-desc">Instant one-click switching (<code class="inline-code">⌃⇧X</code>) between beautifully rendered document preview and clean raw Markdown source code without losing scroll position.</div>
       </div>
 
       <div class="spec-item">
@@ -119,18 +119,23 @@
       </div>
 
       <div class="spec-item">
-        <div class="spec-name">Document Metadata</div>
-        <div class="spec-desc">Instant inspection drawer showing file name, file path with one-click copy, file size, word count, reading time estimates, heading counts, and total lines.</div>
+        <div class="spec-name">Document Outline &amp; Search</div>
+        <div class="spec-desc">Live sidebar table of contents with real-time substring filtering, active scroll section highlighting, keyboard shortcut toggle (<code class="inline-code">⌃⇧Z</code>), step buttons, and drag-to-resize panel width (<code class="inline-code">200px</code>&ndash;<code class="inline-code">480px</code>).</div>
       </div>
 
       <div class="spec-item">
-        <div class="spec-name">Copy as Markdown</div>
-        <div class="spec-desc">One-click toolbar action and global keyboard shortcut (<code class="inline-code">⌃⇧C</code>) to copy the document as clean Markdown source directly to your clipboard, even while viewing rendered preview.</div>
+        <div class="spec-name">Collapsible Sections</div>
+        <div class="spec-desc">Interactive chevrons for headings (<code class="inline-code">H1</code>–<code class="inline-code">H6</code>) and nested lists to keep complex, long-form technical documentation structured and navigable.</div>
+      </div>
+
+      <div class="spec-item">
+        <div class="spec-name">Offline Viewer &amp; Ingestion</div>
+        <div class="spec-desc">Dedicated offline viewer page (<code class="inline-code">viewer.html</code>) with drag-and-drop file loading, plus right-click <code class="inline-code">Render page with Mark It Down</code> to format any active webpage in-place.</div>
       </div>
 
       <div class="spec-item">
         <div class="spec-name">Mathematical Equations</div>
-        <div class="spec-desc">Bundled offline KaTeX typesetting for inline <code class="inline-code">$math$</code> and display <code class="inline-code">$$...$$</code> blocks with zero external network requests.</div>
+        <div class="spec-desc">Bundled offline KaTeX engine supporting inline and multi-step display math with automated comment escaping (<code class="inline-code">\%</code>), matrix alignment handling, and table-cell nowrap protection.</div>
       </div>
 
       <div class="spec-item">
@@ -139,8 +144,18 @@
       </div>
 
       <div class="spec-item">
-        <div class="spec-name">Syntax Highlighting</div>
-        <div class="spec-desc">Minimalist code theme with syntax coloring for JavaScript, TypeScript, Python, Bash, JSON, YAML, SQL, CSS, and copyable code blocks with language badges.</div>
+        <div class="spec-name">Syntax Highlighting &amp; Copy</div>
+        <div class="spec-desc">Minimalist code highlighting across major languages, copyable blocks with language badges, and global <code class="inline-code">⌃⇧C</code> to copy clean Markdown source directly to clipboard.</div>
+      </div>
+
+      <div class="spec-item">
+        <div class="spec-name">Print &amp; PDF Formatting</div>
+        <div class="spec-desc">Engineered print stylesheet with strict page-break rules preventing orphan headings (<code class="inline-code">break-after: avoid</code>) and preserving atomic code blocks, tables, and math derivations.</div>
+      </div>
+
+      <div class="spec-item">
+        <div class="spec-name">Document Metadata</div>
+        <div class="spec-desc">Instant inspection drawer showing file name, file path with one-click copy, file size, word count, reading time estimates, heading counts, and total lines.</div>
       </div>
 
       <div class="spec-item">
