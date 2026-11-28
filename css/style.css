@@ -5,133 +5,169 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   Collab Sans Font Family — 18 Styles (WOFF2)
+   Collab Sans Font Family — 18 Styles (WOFF2 + TTF Fallback)
    -------------------------------------------------------------------------- */
 @font-face {
   font-family: 'Collab Sans';
   font-style: normal;
   font-weight: 100;
   font-display: swap;
-  src: url('/fonts/woff2/CollabSans-Thin.woff2') format('woff2');
+  src: local('Collab Sans Thin'), local('CollabSans-Thin'),
+       url('/fonts/woff2/CollabSans-Thin.woff2') format('woff2'),
+       url('/fonts/ttf/CollabSans-Thin.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Collab Sans';
   font-style: italic;
   font-weight: 100;
   font-display: swap;
-  src: url('/fonts/woff2/CollabSans-ThinItalic.woff2') format('woff2');
+  src: local('Collab Sans Thin Italic'), local('CollabSans-ThinItalic'),
+       url('/fonts/woff2/CollabSans-ThinItalic.woff2') format('woff2'),
+       url('/fonts/ttf/CollabSans-ThinItalic.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Collab Sans';
   font-style: normal;
   font-weight: 200;
   font-display: swap;
-  src: url('/fonts/woff2/CollabSans-ExtraLight.woff2') format('woff2');
+  src: local('Collab Sans ExtraLight'), local('CollabSans-ExtraLight'),
+       url('/fonts/woff2/CollabSans-ExtraLight.woff2') format('woff2'),
+       url('/fonts/ttf/CollabSans-ExtraLight.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Collab Sans';
   font-style: italic;
   font-weight: 200;
   font-display: swap;
-  src: url('/fonts/woff2/CollabSans-ExtraLightItalic.woff2') format('woff2');
+  src: local('Collab Sans ExtraLight Italic'), local('CollabSans-ExtraLightItalic'),
+       url('/fonts/woff2/CollabSans-ExtraLightItalic.woff2') format('woff2'),
+       url('/fonts/ttf/CollabSans-ExtraLightItalic.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Collab Sans';
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url('/fonts/woff2/CollabSans-Light.woff2') format('woff2');
+  src: local('Collab Sans Light'), local('CollabSans-Light'),
+       url('/fonts/woff2/CollabSans-Light.woff2') format('woff2'),
+       url('/fonts/ttf/CollabSans-Light.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Collab Sans';
   font-style: italic;
   font-weight: 300;
   font-display: swap;
-  src: url('/fonts/woff2/CollabSans-LightItalic.woff2') format('woff2');
+  src: local('Collab Sans Light Italic'), local('CollabSans-LightItalic'),
+       url('/fonts/woff2/CollabSans-LightItalic.woff2') format('woff2'),
+       url('/fonts/ttf/CollabSans-LightItalic.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Collab Sans';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/woff2/CollabSans-Regular.woff2') format('woff2');
+  src: local('Collab Sans Regular'), local('CollabSans-Regular'), local('Collab Sans'),
+       url('/fonts/woff2/CollabSans-Regular.woff2') format('woff2'),
+       url('/fonts/ttf/CollabSans-Regular.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Collab Sans';
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/woff2/CollabSans-Italic.woff2') format('woff2');
+  src: local('Collab Sans Italic'), local('CollabSans-Italic'),
+       url('/fonts/woff2/CollabSans-Italic.woff2') format('woff2'),
+       url('/fonts/ttf/CollabSans-Italic.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Collab Sans';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('/fonts/woff2/CollabSans-Medium.woff2') format('woff2');
+  src: local('Collab Sans Medium'), local('CollabSans-Medium'),
+       url('/fonts/woff2/CollabSans-Medium.woff2') format('woff2'),
+       url('/fonts/ttf/CollabSans-Medium.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Collab Sans';
   font-style: italic;
   font-weight: 500;
   font-display: swap;
-  src: url('/fonts/woff2/CollabSans-MediumItalic.woff2') format('woff2');
+  src: local('Collab Sans Medium Italic'), local('CollabSans-MediumItalic'),
+       url('/fonts/woff2/CollabSans-MediumItalic.woff2') format('woff2'),
+       url('/fonts/ttf/CollabSans-MediumItalic.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Collab Sans';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('/fonts/woff2/CollabSans-SemiBold.woff2') format('woff2');
+  src: local('Collab Sans SemiBold'), local('CollabSans-SemiBold'),
+       url('/fonts/woff2/CollabSans-SemiBold.woff2') format('woff2'),
+       url('/fonts/ttf/CollabSans-SemiBold.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Collab Sans';
   font-style: italic;
   font-weight: 600;
   font-display: swap;
-  src: url('/fonts/woff2/CollabSans-SemiBoldItalic.woff2') format('woff2');
+  src: local('Collab Sans SemiBold Italic'), local('CollabSans-SemiBoldItalic'),
+       url('/fonts/woff2/CollabSans-SemiBoldItalic.woff2') format('woff2'),
+       url('/fonts/ttf/CollabSans-SemiBoldItalic.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Collab Sans';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/fonts/woff2/CollabSans-Bold.woff2') format('woff2');
+  src: local('Collab Sans Bold'), local('CollabSans-Bold'),
+       url('/fonts/woff2/CollabSans-Bold.woff2') format('woff2'),
+       url('/fonts/ttf/CollabSans-Bold.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Collab Sans';
   font-style: italic;
   font-weight: 700;
   font-display: swap;
-  src: url('/fonts/woff2/CollabSans-BoldItalic.woff2') format('woff2');
+  src: local('Collab Sans Bold Italic'), local('CollabSans-BoldItalic'),
+       url('/fonts/woff2/CollabSans-BoldItalic.woff2') format('woff2'),
+       url('/fonts/ttf/CollabSans-BoldItalic.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Collab Sans';
   font-style: normal;
   font-weight: 800;
   font-display: swap;
-  src: url('/fonts/woff2/CollabSans-ExtraBold.woff2') format('woff2');
+  src: local('Collab Sans ExtraBold'), local('CollabSans-ExtraBold'),
+       url('/fonts/woff2/CollabSans-ExtraBold.woff2') format('woff2'),
+       url('/fonts/ttf/CollabSans-ExtraBold.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Collab Sans';
   font-style: italic;
   font-weight: 800;
   font-display: swap;
-  src: url('/fonts/woff2/CollabSans-ExtraBoldItalic.woff2') format('woff2');
+  src: local('Collab Sans ExtraBold Italic'), local('CollabSans-ExtraBoldItalic'),
+       url('/fonts/woff2/CollabSans-ExtraBoldItalic.woff2') format('woff2'),
+       url('/fonts/ttf/CollabSans-ExtraBoldItalic.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Collab Sans';
   font-style: normal;
   font-weight: 900;
   font-display: swap;
-  src: url('/fonts/woff2/CollabSans-Black.woff2') format('woff2');
+  src: local('Collab Sans Black'), local('CollabSans-Black'),
+       url('/fonts/woff2/CollabSans-Black.woff2') format('woff2'),
+       url('/fonts/ttf/CollabSans-Black.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Collab Sans';
   font-style: italic;
   font-weight: 900;
   font-display: swap;
-  src: url('/fonts/woff2/CollabSans-BlackItalic.woff2') format('woff2');
+  src: local('Collab Sans Black Italic'), local('CollabSans-BlackItalic'),
+       url('/fonts/woff2/CollabSans-BlackItalic.woff2') format('woff2'),
+       url('/fonts/ttf/CollabSans-BlackItalic.ttf') format('truetype');
 }
 
 /* --------------------------------------------------------------------------
